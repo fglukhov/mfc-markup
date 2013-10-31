@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/main.css" media="all"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 <!--[if lte IE 8]>
@@ -29,6 +30,8 @@
 <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
 
 <script type="text/javascript" src="js/calendar.js"></script>
+<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
@@ -199,32 +202,132 @@
           	    
           	    <div class="tabbed-content common-tabs">
           	      <div class="tabs">
-          	        <div class="tab" rel="course-brief">
-          	          <span>Кратко</span>
-          	        </div>
-          	        <div class="tab" rel="course-details">
-          	          <span>Подробное описание</span>
+          	        <div class="tab" rel="course-description">
+          	          <span>Описание</span>
           	        </div>
           	        <div class="tab" rel="course-program">
           	          <span>Программа</span>
           	        </div>
+          	        <div class="tab" rel="course-studies">
+          	          <span>Занятия в рамках курса</span>
+          	        </div>
+                    <div class="tab" rel="course-results">
+          	          <span>Итоги реализации</span>
+          	        </div>
           	      </div>
           	      <div class="tabs-content">
           	      
-          	        <!-- Курс - кратко -->
-          	        <div class="tab-content" rel="course-brief">
+          	        <!-- Курс - описание -->
+          	        <div class="tab-content" rel="course-description">
           	          
-          	          <h2>Цель программы</h2>
+          	          <h3>Описание</h3>
+                      
+                      <ul class="course-data">
+                        <li>Дата проведения: <strong>29.10.2013 - 30.10.2013</strong></li>
+                        <li>Форма обучения: <strong>дневная</strong></li>
+                        <li>Стоимость для юриждических лиц: <strong>18 000 рублей</strong></li>
+                        <li>Стоимость для физических лиц: <strong>16 000 рублей</strong></li>
+                        <li>Скидки: <strong>при регистрации пятерых участников, предоставляется скидка 20%</strong></li>
+                      </ul>
+                      
+                      <div class="fc">
+                      	<a href="#" class="common-sign-up">Записаться</a>
+                      </div>
+                      
+                      <div class="hr"></div>
+                      
+                      <h3>Место проведения</h3>
+                      
+                      <p class="big">
+                        Центральный офис: <strong>107023, г. Москва , Москва, ул. Буженинова д.30</strong><br />
+                        Телефон: <strong>+7 495 123-45-69</strong><br />
+                        E-mail: <strong><a href="mailto:info@mfc.ru">info@mfc.ru</a></strong>
+                      </p>
+                      
+                      <script type="text/javascript" src="js/map.js"></script>
+                      <div id="course_map"></div>
           	          
-          	          <p>Совершенствование навыков выполнения аудиторских процедур, связанных с соблюдением требований Федерального закона от 7 августа 2001 г. № 115-ФЗ «О противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма» (далее – Федеральный закон).</p>
-          	          
-          	          <h2>Результат обучения</h2>
-          	          
-          	          <p>Глубокие знания и понимание требований Федерального закона. Навыки выполнения аудиторских процедур, связанных с соблюдением требований Федерального закона.</p>
-          	          
-          	          <p>В целях экономии Вашего времени и средств мы предлагаем Вам проведение выездных учебных курсов по подготовке к базовому (серия 0.0) и специализированным экзаменам, а также семинаров и консультации в вашем офисе в любом регионе России.</p>
-          	          
-          	          <p><strong><i>Продолжительность спецкурса - 10 академических часов</i></strong></p>
+                      <div class="tabbed-content common-tabs common-tabs-2 courses-tabs course-descr-tabs">
+                        <div class="tabs">
+                          <div class="tab" rel="courses-descr-teachers">
+                            <span>Преподаватели</span>
+                          </div>
+                          <div class="tab" rel="courses-descr-reqs">
+                            <span>Требования<br />к слушателям</span>
+                          </div>
+                          <div class="tab" rel="courses-descr-program">
+                            <span>Скидки</span>
+                          </div>
+                          <div class="tab" rel="courses-descr-docs">
+                            <span>Выдаваемые<br />документы</span>
+                          </div>
+                        </div>
+                        <div class="tabs-content">
+                        
+                          <!-- Преподаватели -->
+                          <div class="tab-content" rel="courses-descr-teachers">
+                            
+                            <div class="teachers-list-compact fc">
+                              <div class="teachers-list-item fc">
+                                <div class="pic">
+                                  <a href="#"><img src="files/teacher-tmb-1.jpg" /></a>
+                                </div>
+                                <div class="descr">
+                                  <div class="name"><a href="#">Абрамова Елена Вячеславовна</a></div>
+                                  Начальник Депозитария АКБ «Электроника» ОАО, преподаватель Института/Учебного центра МФЦ
+                                </div>
+                              </div>
+                              <div class="teachers-list-item fc">
+                                <div class="pic">
+                                  <a href="#"><img src="files/teacher-tmb-1.jpg" /></a>
+                                </div>
+                                <div class="descr">
+                                  <div class="name"><a href="#">Аноприенко Виталий Михайлович</a></div>
+                                  Заместитель начальника Управления регулирования деятельности участников финансового рынка
+                                </div>
+                              </div>
+                              <div class="teachers-list-item fc">
+                                <div class="pic">
+                                  
+                                </div>
+                                <div class="descr">
+                                  <div class="name"><a href="#">Аверчев Игорь Вячеславович</a></div>
+                                  Ведущий преподаватель Института/Учебного центра МФЦ, выдающийся специалист в области МСФО
+                                </div>
+                              </div>
+                            </div>
+                            
+                          </div>
+                          <!-- Преподаватели END -->
+                          
+                          <!-- Требования к слушателям -->
+                          <div class="tab-content" rel="courses-descr-reqs">
+                            
+                            Требования к слушателям
+                            
+                          </div>
+                          <!-- Требования к слушателям END -->
+                          
+                          <!-- Программа -->
+                          <div class="tab-content" rel="courses-descr-program">
+                            
+                            Программа
+                            
+                          </div>
+                          <!-- Программа END -->
+                          
+                          <!-- Выдаваемые документы -->
+                          <div class="tab-content" rel="courses-descr-docs">
+                            
+                            Выдаваемые документы
+                            
+                          </div>
+                          <!-- Выдаваемые документы END -->
+                          
+                          
+                          
+                        </div>
+                      </div>
           	          
           	          <div class="course-docs">
           	            <div class="trigger"><span>Документы для записи на экзамен</span></div>
@@ -244,82 +347,14 @@
           	        </div>
           	        <!-- Курс - кратко END -->
           	        
-          	        <!-- Курс - подробно -->
-          	        <div class="tab-content" rel="course-details">
-          	          
-          	          <p><strong><i>Набор в группы ведется постоянно. Занятия начинаются по мере набора группы, но не реже, чем один раз в месяц.</i></strong></p>
-                      
-                      <h2>Выездные курсы</h2>
-                      
-                      <p>В целях экономии Вашего времени и средств мы предлагаем Вам проведение выездных учебных курсов по подготовке к базовому (серия 0.0) и специализированным экзаменам, а также семинаров и консультации в вашем офисе в любом регионе России.</p>
-
-                      <p>Мы предлагаем индивидуальный график занятий, возможность корректировки программ и подбор преподавателей (консультантов) в соответствии с Вашими требованиями.</p>
-
-                      <p>По всем вопросам, касающимся выездных мероприятий, обращайтесь, пожалуйста, к Ирине Глушонковой по тел. (495) 921-2273, 964-0480, 964-0480, 964-3190; электронная почта: <a href="#">ecc@educenter.ru</a></p>
-                      
-                      <h2>Запись на экзамен</h2>
-                      
-                      <p>Централизованно на ближайший экзамен, либо на любой другой по желанию слушателя. Посмотреть расписание экзаменов</p>
-                      
-                      <h2>Услуги, входящие в стоимость обучения</h2>
-                      
-                      <ul class="course-services-list">
-                        <li>Предэкзаменационное итоговое тестирование (одна попытка)</li>
-                        <li>Учебно-методические материалы, предэкзаменационные консультации и запись на экзамен.</li>
-                        <li>Слушателям базового курса предоставляется уникальный учебник "Базовый курс по рынку ценных бумаг", изданный Учебным центром МФЦ.</li>
-                        <li>Слушателям специализированного курса Пятой серии предоставляется уникальный учебник "Управление инвестиционными, паевыми инвестиционными и негосударственными пенсионными фондами", изданный Институтом МФЦ в 2011 году.</li>
-                      </ul>
-                      
-                      <h2>Дополнительные услуги</h2>
-                      
-                      <p>Дополнительные учебно-методические материалы и тестовая программа "Экзаменатор", повторная запись на экзамен</p>
-          	          
-                      <p><strong><i>Повторное предэкзаменационное итоговое тестирование.</i></strong></p>
-                      
-                      <h2>Требования к слушателям</h2>
-                      
-                      <p>Специалисты финансового рынка по брокерской, дилерской деятельности и деятельности по управлению ценными бумагами.</p>
-                      
-                      <h2>Выдаваемые документы</h2>
-                      
-                      <ul class="diplomas-list">
-                        <li>
-                          По окончании обучения слушатели получают <a href="#">свидетельство о повышении квалификации</a>, выдаваемое Институтом МФЦ;
-                        </li>
-                        <li>
-                          В случае успешной сдачи экзамена - <a href="#">КВАЛИФИКАЦИОННЫЙ АТТЕСТАТ АУДИТОРА</a> выдаваемый саморегулируемой организацией аудиторов.
-                        </li>
-                      </ul>
-                      
-                      <div class="course-docs">
-          	            <div class="trigger"><span>Документы для записи на экзамен</span></div>
-          	            <div class="cont">
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Анкета для записи на экзамен</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Образец извещения для физических лиц</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Образец платежного поручения для юридических лиц</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	            </div>
-          	          </div>
-                      
-          	        </div>
-          	        <!-- Курс - подробно END -->
-          	        
-          	        <!-- Курс - программа -->
+                    <!-- Курс - программа -->
           	        <div class="tab-content" rel="course-program">
           	          
                       <div class="dl-program">
                         <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Скачать программу</a>(docx, 22.5 Кб)</span>
                       </div>
                       
-          	          <h2>Программа учебного курса</h2>
-                      <div class="sub-h2">
-                        для подготовки к сдаче базового квалификационного экзамена
-                      </div>
+          	          <h3>Программа учебного курса</h3>
                       
                       <div class="course-program">
                         <div class="cp-item">
@@ -624,23 +659,337 @@
                         </div>
                       </div>
           	          
-                      <div class="course-docs">
-          	            <div class="trigger"><span>Документы для записи на экзамен</span></div>
-          	            <div class="cont">
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Анкета для записи на экзамен</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Образец извещения для физических лиц</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	              <div class="cd-item fc">
-          	                <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Образец платежного поручения для юридических лиц</a>(rtf, 22.5 Кб)</span>
-          	              </div>
-          	            </div>
-          	          </div>
-                      
           	        </div>
           	        <!-- Курс - программа END -->
+          	        
+                    <!-- Занятия в рамках курса -->
+                    
+                    <div class="tab-content" rel="course-studies">
+                    
+                      <h3>Занятия в рамках курса</h3>
+                      
+                      <table class="course-schedule">
+                        <tr>
+                          <th>Занятие</th>
+                          <th>Дата проведения</th>
+                          <th>Время проведения</th>
+                          <th>Преподаватель</th>
+                          <th>Описание</th>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="stage">
+                              <div class="num">1.</div>
+                              <div class="cont">
+                                Первоначальное представление о балансе организации
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            29.10.2013
+                          </td>
+                          <td>
+                            18:00 — 20:00
+                          </td>
+                          <td>
+                            <p>Абрамова&nbsp;Елена Вячеславовна</p>
+                            <p>Аверчев&nbsp;Игорь Вячеславович</p>
+                            <p>Андрианова&nbsp;Людмила Николаевна</p>
+                          </td>
+                          <td>
+                            <p>Структура баланса</p>
+                            <p>Отражение в балансе операций по расчетному счету</p>
+                            <p>Запись хозяйственных операций посредством бухгалтерских счетов</p>
+                            <p>Задания по отражению хозяйственных операций в бухгалтерском учете и составление упрощенного баланса организации.</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="stage">
+                              <div class="num">2.</div>
+                              <div class="cont">
+                                Первоначальное представление о балансе организации
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            29.10.2013
+                          </td>
+                          <td>
+                            18:00 — 20:00
+                          </td>
+                          <td>
+                            <p>Абрамова&nbsp;Елена Вячеславовна</p>
+                            <p>Аверчев&nbsp;Игорь Вячеславович</p>
+                            <p>Андрианова&nbsp;Людмила Николаевна</p>
+                          </td>
+                          <td>
+                            <p>Структура баланса</p>
+                            <p>Отражение в балансе операций по расчетному счету</p>
+                            <p>Запись хозяйственных операций посредством бухгалтерских счетов</p>
+                            <p>Задания по отражению хозяйственных операций в бухгалтерском учете и составление упрощенного баланса организации.</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="stage">
+                              <div class="num">3.</div>
+                              <div class="cont">
+                                Первоначальное представление о балансе организации
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            29.10.2013
+                          </td>
+                          <td>
+                            18:00 — 20:00
+                          </td>
+                          <td>
+                            <p>Абрамова&nbsp;Елена Вячеславовна</p>
+                            <p>Аверчев&nbsp;Игорь Вячеславович</p>
+                            <p>Андрианова&nbsp;Людмила Николаевна</p>
+                          </td>
+                          <td>
+                            <p>Структура баланса</p>
+                            <p>Отражение в балансе операций по расчетному счету</p>
+                            <p>Запись хозяйственных операций посредством бухгалтерских счетов</p>
+                            <p>Задания по отражению хозяйственных операций в бухгалтерском учете и составление упрощенного баланса организации.</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="stage">
+                              <div class="num">4.</div>
+                              <div class="cont">
+                                Первоначальное представление о балансе организации
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            29.10.2013
+                          </td>
+                          <td>
+                            18:00 — 20:00
+                          </td>
+                          <td>
+                            <p>Абрамова&nbsp;Елена Вячеславовна</p>
+                            <p>Аверчев&nbsp;Игорь Вячеславович</p>
+                            <p>Андрианова&nbsp;Людмила Николаевна</p>
+                          </td>
+                          <td>
+                            <p>Структура баланса</p>
+                            <p>Отражение в балансе операций по расчетному счету</p>
+                            <p>Запись хозяйственных операций посредством бухгалтерских счетов</p>
+                            <p>Задания по отражению хозяйственных операций в бухгалтерском учете и составление упрощенного баланса организации.</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="stage">
+                              <div class="num">5.</div>
+                              <div class="cont">
+                                Первоначальное представление о балансе организации
+                              </div>
+                            </div>
+                          </td>
+                          <td>
+                            29.10.2013
+                          </td>
+                          <td>
+                            18:00 — 20:00
+                          </td>
+                          <td>
+                            <p>Абрамова&nbsp;Елена Вячеславовна</p>
+                            <p>Аверчев&nbsp;Игорь Вячеславович</p>
+                            <p>Андрианова&nbsp;Людмила Николаевна</p>
+                          </td>
+                          <td>
+                            <p>Структура баланса</p>
+                            <p>Отражение в балансе операций по расчетному счету</p>
+                            <p>Запись хозяйственных операций посредством бухгалтерских счетов</p>
+                            <p>Задания по отражению хозяйственных операций в бухгалтерском учете и составление упрощенного баланса организации.</p>
+                          </td>
+                        </tr>
+                      </table>
+                    
+                    </div>
+                    
+                    <!-- Занятия в рамках курса END -->
+                    
+          	        <!-- Курс - итоги реализации -->
+          	        <div class="tab-content" rel="course-results">
+          	          
+                      <div class="page-text">
+                      	<h3>Итоги реализации</h3>
+                      	
+                      	<h4>Вопросы</h4>
+                        
+                        <ul>
+                          <li>Заполнение констант</li>
+                          <li>Заполнение справочников</li>
+                          <li>Учетная политика</li>
+                          <li>Ввод начальных остатков</li>
+                          <li>Текущие операции бухгалтерского учета</li>
+                          <li>Поступление имущества</li>
+                          <li>Реализация имущества</li>
+                          <li>Закрытие месяца</li>
+                          <li>Формирование отчетов</li>
+                        </ul>
+                        
+                      </div>
+                        
+                      <h4>Итоги онлайн-трансляции</h4>
+                      
+                      <div class="fancybox-gallery fc">
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                      </div>
+                      
+                      <h4>Фотоотчет</h4>
+                      
+                      <div class="fancybox-gallery fc">
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                          <img src="files/gallery-2-tmb.jpg" alt=""/>
+                        </a>
+                        
+                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                          <img src="files/gallery-1-tmb.jpg" alt=""/>
+                        </a>
+                      </div>
+
+                      <h4>Отзывы</h4>
+                      
+                      <div class="course-reviews">
+                        <div class="course-reviews-item fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        <div class="course-reviews-item fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        <div class="course-reviews-item fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        <div class="course-reviews-item review-hidden fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        <div class="course-reviews-item review-hidden fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        <div class="course-reviews-item review-hidden fc">
+                          <div class="pic">
+                            <img src="files/review-tmb-1.jpg"/>
+                          </div>
+                          <div class="descr">
+                            <div class="pt"></div>
+                            <div class="cont">
+                              <div class="ttl">Компания Крафтман Украина:</div>
+                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="more-reviews"><span>Еще отзывы</span></div>
+                        
+                      </div>
+                        
+                        
+                      
+                      
+                      
+          	        </div>
+          	        <!-- Курс - итоги реализации END -->
+          	        
           	        
           	      </div>
           	    </div>
@@ -651,7 +1000,7 @@
                 
                 <div class="page-tools fc">
                   <div class="pt-links">
-                    <a href="#" class="ptl-item"><img src="images/void.gif" class="ico ico-back" />К статьям</a>
+                    <a href="#" class="ptl-item"><img src="images/void.gif" class="ico ico-back" />К сериям курсов</a>
                     <a href="#" class="ptl-item" onClick="window.print();return false;"><img src="images/void.gif" class="ico ico-print" />Распечатать</a>
                   </div>
                 </div>
@@ -725,12 +1074,12 @@
           
           <!-- Ближайшие курсы -->
           
-          <div class="upcoming-courses-2 fc">
+          <div class="upcoming-courses fc">
            <div class="center-wrapper">
               <div class="upcoming-courses-content">
             	  <div class="upcoming-courses-item">
             	    <div class="ttl">
-            	      <a href="#">Базовый курс по международным стандартам финансовой отчетности</a>
+            	      <a href="#">Бухгалтерский учет и налогообложение операций с ценными бумагами. Подготовка финансовой отчетности и налоговых деклараций </a>
             	    </div>
             	    <div class="form">
             	      Форма обучения: вечерняя
@@ -752,51 +1101,7 @@
             	  </div>
             	  <div class="upcoming-courses-item">
             	    <div class="ttl">
-            	      <a href="#">Международный диплом ACCA - DipIFR</a>
-            	    </div>
-            	    <div class="form">
-            	      Форма обучения: вечерняя
-            	    </div>
-            	    <div class="dates">
-            	      23 сентября 2013 &larr; 10 декабря 2013
-            	    </div>
-            	    <div class="prices fc">
-            	      <div class="price-1">
-            	        <span class="cat">физ. лица</span>
-            	        <span>17000 &#8399;</span>
-            	      </div>
-            	      <div class="price-2">
-            	        <span class="cat">юр. лица</span>
-            	        <span>17680 &#8399;</span>
-            	      </div>
-            	    </div>
-            	    <a class="signup" href="#">Записаться</a>
-            	  </div>
-            	  <div class="upcoming-courses-item">
-            	    <div class="ttl">
-            	      <a href="#">Подготовка в сдаче экзамена на аттестат профессионального бухгалтера ...</a>
-            	    </div>
-            	    <div class="form">
-            	      Форма обучения: вечерняя
-            	    </div>
-            	    <div class="dates">
-            	      23 сентября 2013 &larr; 10 декабря 2013
-            	    </div>
-            	    <div class="prices fc">
-            	      <div class="price-1">
-            	        <span class="cat">физ. лица</span>
-            	        <span>17000 &#8399;</span>
-            	      </div>
-            	      <div class="price-2">
-            	        <span class="cat">юр. лица</span>
-            	        <span>17680 &#8399;</span>
-            	      </div>
-            	    </div>
-            	    <a class="signup" href="#">Записаться</a>
-            	  </div>
-            	  <div class="upcoming-courses-item">
-            	    <div class="ttl">
-            	      <a href="#">Базовый курс (серия 0.0)</a>
+            	      <a href="#">Основы рынка ценных бумаг (экспресс-курс)</a>
             	    </div>
             	    <div class="form">
             	      Форма обучения: вечерняя

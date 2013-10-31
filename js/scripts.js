@@ -257,6 +257,17 @@ function makeup() {
       
     });
   }
+  
+  if ($(".upcoming-courses-2").length) {
+    $(".upcoming-courses-2 .ttl a").each(function() {
+      if ($(this).height() < 70 && $(this).height() >= 32) {
+        $(this).css("font-size","24px").css("line-height","24px");
+      }
+      if ($(this).height() < 32) {
+        $(this).css("font-size","36px").css("line-height","36px");
+      }
+    });
+  }
 
   if ($(".calendar-carousel").length) {
     $(".calendar-calendar").each(function() {
