@@ -16,16 +16,48 @@ $(document).ready(function () {
 
   makeup();
   
+  $(".course-manager .trigger, .manager-popup .name").click(function() {
+    $(".manager-popup").fadeToggle(150)
+  })
+  
+  $(".manager-popup,.course-manager h4").hover(function() {
+    $(this).addClass("hover");
+  },function() {
+    $(this).removeClass("hover");
+  });
+  
+  $(".manager-popup").bind("mouseout",function() {
+    if (managerT) {
+      cleadTimeout(managerT)
+    }
+    var managerT = setTimeout(function() {
+      if (!$(".manager-popup").hasClass("hover") && !$(".course-manager h4").hasClass("hover")) {
+        $(".manager-popup").fadeOut(250)
+      }
+    },500);
+  });
+  
+  $(".course-program .ttl").click(function() {
+    $(this).parents(".cp-item").find(".descr").slideToggle(250);
+    $(this).parents(".cp-item").toggleClass("cp-open")
+  });
+  
+  $(".course-docs .trigger").click(function() {
+    $(this).next(".cont").slideToggle(150);
+  });
+  
   // Tabbed content
   
   $(".tabbed-content").each(function() {
     var tabs = $(this).children(".tabs").find(".tab");
     var tabContents = $(this).children(".tabs-content").children(".tab-content");
     
-    tabs.first().addClass("act");
+    if (!tabs.hasClass("act")) {
+      tabs.first().addClass("act");
+    }
     
     tabContents.hide();
-    tabContents.first().show();
+    tabContents.filter("[rel='"+tabs.filter(".act").attr("rel")+"']").show();
     
     tabs.click(function() {
       tabs.removeClass("act");
@@ -119,6 +151,17 @@ $(document).ready(function () {
 });
 
 function makeup() {
+
+  if ($(".upcoming-courses").length) {
+    $(".upcoming-courses .ttl a").each(function() {
+      if ($(this).height() < 70 && $(this).height() >= 32) {
+        $(this).css("font-size","24px").css("line-height","24px");
+      }
+      if ($(this).height() < 32) {
+        $(this).css("font-size","36px").css("line-height","36px");
+      }
+    });
+  }
 
   if ($(".calendar-carousel").length) {
     $(".calendar-calendar").each(function() {
