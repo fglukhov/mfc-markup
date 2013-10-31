@@ -1,0 +1,15 @@
+﻿.form-1 .input-wrapper {
+  background:#fff url(../images/input-bg.png) 0 0 repeat-x;
+}
+
+.form-1 .form-textarea {
+  background:#fff url(../images/input-bg.png) 0 0 repeat-x;
+}
+
+.form-2 .input-wrapper {
+  background:#efeee6 url(../images/input-bg-2.png) 0 0 repeat-x;
+}
+
+.form-2 .form-textarea {
+  background:#efeee6 url(../images/input-bg-2.png) 0 0 repeat-x;
+}
