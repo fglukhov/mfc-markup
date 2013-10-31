@@ -16,6 +16,83 @@ $(document).ready(function () {
 
   makeup();
   
+  $(".main-menu .link").parents("li").hover(function() {
+    $(this).find(".submenu").fadeIn(150);
+  },function() {
+    $(this).find(".submenu").fadeOut(150);
+  });
+  
+  $(".more-reviews span").click(function() {
+    $(".review-hidden").fadeIn(150)
+  })
+  
+  // Fancyboxes
+  
+  if ($(".fancybox").length) {
+    
+      
+    $(".fancybox")
+    .fancybox({
+      nextEffect: 'fade',
+      prevEffect: 'fade',
+      beforeShow: function () {
+      
+        if (this.title) {
+          // New line
+          this.title += '';
+          
+          //this.title += '<div class="descr">'+$(this.element).children(".descr").html()+'</div>'
+          
+          this.title += '<div class="fancybox-counter">Фотография ' + (this.index + 1) + ' из ' + this.group.length +'</div>';
+          
+        }
+      },
+      afterShow: function() {
+        // Render tweet button
+        twttr.widgets.load();
+      },
+      helpers : {
+        title : {
+          type: 'inside'
+        }
+      }
+    });
+    
+
+  }
+  
+  validateForms();
+  
+  $(".common-form select").customSelect();
+  
+  // Adding form field
+  
+  $(".common-form .add-field").click(function() {
+    var adder = $(this);
+    var newIndex = parseInt($(".form-item[rel='" + adder.attr("rel") + "']").length + 1);
+    
+    var newFormItem = $(".form-item[rel='" + adder.attr("rel") + "']").last().clone();
+    
+    newFormItem.find("input").attr("id",newFormItem.find("input").attr("id").replace("_"+parseInt(newIndex-1),"_"+newIndex));
+    newFormItem.find("input").attr("name",newFormItem.find("input").attr("id").replace("_"+parseInt(newIndex-1),"_"+newIndex));
+    
+    newFormItem.insertAfter($(".form-item[rel='" + adder.attr("rel") + "']").last());
+    newFormItem.find("label").html("");
+    
+  });
+  
+  // custom input
+  
+  if ($(".common-form input:file").length) {
+    $(".common-form input:file").nicefileinput({ 
+      label : 'Выбрать файл'
+    });
+  }
+  
+  $(".hint .close").click(function() {
+    $(this).parents(".hint").slideUp(150)
+  });
+  
   $(".course-manager .trigger, .manager-popup .name").click(function() {
     $(".manager-popup").fadeToggle(150)
   })
@@ -86,6 +163,18 @@ $(document).ready(function () {
     });
   }
   
+  // Books carousel
+  
+  if ($(".books-carousel").length) {
+    $(".books-carousel .jcarousel").jcarousel({
+      scroll:6,
+      animation: 2000,
+      initCallback: booksInit,
+      buttonPrevCallback: booksPrev,
+      buttonNextCallback: booksNext
+    });
+  }
+  
   // Calendar carousel
   
   if ($(".calendar-carousel").length) {
@@ -152,14 +241,20 @@ $(document).ready(function () {
 
 function makeup() {
 
+  if ($(".events-table-2").length) {
+    $(".events-table-2 .name a").each(function() {
+      if ($(this).height() > 50) {
+        $(this).css("font-size","18px").css("line-height","18px");
+      }
+    });
+  }
+
   if ($(".upcoming-courses").length) {
     $(".upcoming-courses .ttl a").each(function() {
-      if ($(this).height() < 70 && $(this).height() >= 32) {
-        $(this).css("font-size","24px").css("line-height","24px");
-      }
-      if ($(this).height() < 32) {
+      if ($(this).height() < 55) {
         $(this).css("font-size","36px").css("line-height","36px");
       }
+      
     });
   }
 
@@ -193,7 +288,7 @@ function makeup() {
   }
 
   $("input:text, textarea").each(function() {
-    if (!$(this).prev("label").length && $(this).attr("phvalue") != "") {
+    if (!$(this).prev("label").length && $(this).attr("phvalue")) {
       $(this).before("<label for='"+$(this).attr("id")+"' class='placeholder'>"+$(this).attr("phvalue")+"</label>");
       $(this).addClass("initial");
       
@@ -278,3 +373,176 @@ function calendarLastInCallback(carousel, item, idx, state) {
   carousel.list.find("li[jcarouselindex='"+parseInt(idx+1)+"']").addClass("next");
   carousel.list.find("li[jcarouselindex='"+parseInt(idx-1)+"']").addClass("prev");
 };
+
+function booksInit(carousel, state) {
+  var cloneNext = carousel.list.parents(".books-carousel").find(".jcarousel-next").clone();
+  var clonePrev = carousel.list.parents(".books-carousel").find(".jcarousel-prev").clone();
+  carousel.list.parents(".books-carousel").append(clonePrev);
+  carousel.list.parents(".books-carousel").append(cloneNext);
+  cloneNext.click(function() {
+    carousel.list.parents(".books-carousel").find(".jcarousel-next").click();
+  });
+  clonePrev.click(function() {
+    carousel.list.parents(".books-carousel").find(".jcarousel-prev").click();
+  });
+};
+
+function booksPrev(carousel, button, enabled) {
+  if (!enabled) {
+    carousel.list.parents(".books-carousel").children(".jcarousel-prev").addClass("jcarousel-prev-disabled");
+  } else {
+    carousel.list.parents(".books-carousel").children(".jcarousel-prev").removeClass("jcarousel-prev-disabled");
+  }
+};
+
+function booksNext(carousel, button, enabled) {
+  if (!enabled) {
+    carousel.list.parents(".books-carousel").children(".jcarousel-next").addClass("jcarousel-next-disabled");
+  } else {
+    carousel.list.parents(".books-carousel").children(".jcarousel-next").removeClass("jcarousel-next-disabled");
+  }
+};
+
+function validateForms() {
+  
+  // Заказ, персональные данные
+  
+  var validatorPersonal = $("#personalForm").bind("invalid-form.validate", function() {
+  	    
+  	  }).validate({
+  	  focusInvalid: false,
+  	  sendForm : false,
+  	  messages: {
+  	    personal_name_1: "&mdash; Обязательное для заполнения поле",
+  	    personal_hotel: "&mdash; Обязательное для заполнения поле",
+  	    personal_contactperson: "&mdash; Обязательное для заполнения поле"
+        
+  	  },
+  	  errorPlacement: function(error, element) {
+  	    // element.parents(".input-wrapper").addClass("input-wrapper-error");
+        error.insertAfter(element);
+  	  },
+  	  unhighlight: function(element, errorClass, validClass) {
+  	    // $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+  	    $(element).removeClass(errorClass);
+        $(element).next("label.error").remove();
+  	  },
+  	  invalidHandler: function(form, validatorPersonal) {
+  	      var errors = validatorPersonal.numberOfInvalids();
+  	      if (errors) {                    
+  	          validatorPersonal.errorList[0].element.focus();
+  	      }
+  	  } 
+  	});
+  
+}
+
+(function( $ ) {
+  $.fn.customSelect = function() {
+    var selects = $(this);
+    selects.each(function () {
+      var select = $(this);
+      
+      if (!$(this).next(".param-selector").length) {
+        select.css("visibility","hidden").css("position","absolute").css("z-index","-1");
+        select.after("<div class='param-selector' id='" + select.attr("id") + "-selector'>");
+        var selector = select.next(".param-selector");
+        
+        if (select.is(":disabled")) {
+          selector.addClass("selector-disabled")
+        }
+        
+        
+        selector.append("<div class='param-sel' />").append("<div class='dropdown' />");
+        var dropdown = selector.find(".dropdown");
+        // dropdown.append("<div class='top-border' />");
+        var paramSel = selector.find(".param-sel");
+        paramSel.addClass("initial");
+        paramSel.append("<div class='arr' />");
+        paramSel.append("<div class='sel-value' />");
+        
+        if (select.find("option[value=" + select.val() + "]").attr("flag")) {
+          paramSel.find(".sel-value").html("<img src='" + select.find("option[value=" + select.val() + "]").attr("flag") + "' />" + select.find("option[value=" + select.val() + "]").html());
+        } else {
+          paramSel.find(".sel-value").html(select.find("option[value=" + select.val() + "]").html());
+        }
+        
+        select.find("option").each(function () {
+          if ($(this).attr("flag")) {
+            var flag = "<img src=" + $(this).attr("flag") + " />";
+          } else {
+            flag = "";
+          }
+          if ($(this).val() != select.val()/* || select.attr("ttl")*/) {
+            dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+          } else {
+            dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+          }
+        });
+      
+      
+        paramSel.click(function() {
+          if (!select.is(":disabled")) {
+            if (dropdown.css("display") != "block") {
+              $(".dropdown").fadeOut(150);
+              $(".param-open").removeClass("param-open");
+              dropdown.fadeIn(150);
+              selector.addClass("param-open");
+              var maxWidth = 0;
+              
+              $(this).parents(".form-item").prevAll(".form-item").css("z-index","100");
+              $(this).parents(".form-item").css("z-index","1000");
+              $(this).parents(".form-item").nextAll(".form-item").css("z-index","100");
+              
+              dropdown.find("div").each(function () {
+                if ($(this).width() >= maxWidth) {
+                  maxWidth = $(this).width();
+                }
+                if (paramSel.width() >= maxWidth) {
+                  maxWidth = paramSel.width() + 1;
+                }
+              });
+              
+              //paramSel.css("width", maxWidth + "px");
+              // dropdown.find("div").css("width", maxWidth + "px");
+              // dropdown.css("width", maxWidth);
+              
+              // ddOverflow = $("html").height() - (dropdown.offset().top + dropdown.height());
+              // if (ddOverflow < 0) {
+                // dropdown.css("margin-top", -30 - dropdown.height());
+              // }
+              
+              //dropdown.css("top",paramSel.position().top + paramSel.height());
+              
+            } else {
+              dropdown.fadeOut(150);
+              selector.removeClass("param-open");
+            }
+          }
+        });
+        
+        dropdown.find("div").click(function () {
+          selector.removeClass("param-sel-error");
+          paramSel.removeClass("initial");
+          var div = $(this);
+          paramSel.find(".sel-value").html($(this).html());
+          if ($(this).attr("flag")) {
+            paramSel.find(".sel-value").attr("flag",$(this).attr("flag"));
+          }
+          select.val($(this).attr("val")).change();
+          if (select.hasClass("hide-ttl")) {
+            //select.find("option[value='']").remove();
+            dropdown.find("div[val='']").remove();
+          }
+          dropdown.fadeOut(150, function () {
+            dropdown.find("div").show().removeClass("selected");
+            div.addClass("selected");
+            div.parents(".param-open").removeClass("param-open");
+          });
+        });
+      
+      }
+    });
+    
+  };
+})( jQuery );
