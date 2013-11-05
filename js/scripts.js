@@ -16,6 +16,55 @@ $(document).ready(function () {
 
   makeup();
   
+  // Toggling centers photos
+  
+  $(".center-gallery .more-photos").click(function() {
+    $(this).hide();
+    $(this).prevAll(".hidden").fadeIn(150)
+  });
+  
+  // Toggling comment form
+  
+  $(".comment-body .reply-button").click(function() {
+    $(this).parents(".comment-body").next(".comment-form").slideToggle(200)
+  });
+  
+  // Separating news items by rows
+  
+  if ($(".teachers-list-compact").length) {
+    $(".teachers-list-compact").not(".teachers-list-2").not(".teachers-list-3").each(function() {
+      var list = $(this);
+      
+      var items = list.children(".teachers-list-item");
+      
+      for(var i = 0; i < items.length; i+=2) {
+        items.slice(i, i+2)
+           .wrapAll("<div class='teachers-row fc' />");
+      }
+      
+      list.find(".teachers-row").first().addClass("first-row");
+      list.find(".teachers-row").last().addClass("last-row");
+      
+    });
+  }
+  
+  if ($(".teachers-list").length) {
+    $(".teachers-list").not(".teachers-list-2").not(".teachers-list-3").each(function() {
+      var list = $(this);
+      
+      var items = list.children(".teachers-list-item");
+      
+      for(var i = 0; i < items.length; i+=3) {
+        items.slice(i, i+3)
+           .wrapAll("<div class='teachers-row fc' />");
+      }
+      
+      list.find(".teachers-row").first().addClass("first-row");
+      list.find(".teachers-row").last().addClass("last-row");
+      
+    });
+  }
+  
   $(".main-menu .link").parents("li").hover(function() {
     $(this).find(".submenu").fadeIn(150);
   },function() {
@@ -120,6 +169,10 @@ $(document).ready(function () {
   });
   
   $(".course-docs .trigger").click(function() {
+    $(this).next(".cont").slideToggle(150);
+  });
+  
+  $(".expandable .trigger").click(function() {
     $(this).next(".cont").slideToggle(150);
   });
   
@@ -241,6 +294,16 @@ $(document).ready(function () {
 
 function makeup() {
 
+  if (!$(".post-comments .first").length) {
+    $(".post-comments .comment").first().addClass("first")
+  }
+
+  $("ol li").each(function() {
+    if (!$(this).find("span.li-cont").length) {
+      $(this).html("<span class='li-cont'>"+$(this).html()+"</span>");
+    }
+  });
+
   if ($(".events-table-2").length) {
     $(".events-table-2 .name a").each(function() {
       if ($(this).height() > 50) {
@@ -286,6 +349,35 @@ function makeup() {
         }
         
       });
+      
+      li.find(".calendar-day-byweek").each(function() {
+      
+        var dayCont = $(this);
+      
+        $(this).find(".calendar-day-event").each(function() {
+          var eventCont = $(this);
+          
+          if (dayCont.position().left > li.width()/2 && eventCont.position().top < li.height()/2) {
+            $(this).find(".calendar-day-view").addClass("calendar-day-view-left");
+          }
+          
+          if (dayCont.position().left > li.width()/2 && eventCont.position().top >= li.height()/2) {
+            $(this).find(".calendar-day-view").addClass("calendar-day-view-leftbtm");
+          }
+          
+          if (dayCont.position().left < li.width()/2 && eventCont.position().top >= li.height()/2) {
+            $(this).find(".calendar-day-view").addClass("calendar-day-view-btm");
+          }
+          
+        });
+      
+        
+        
+        
+        
+      });
+      
+      
     });
   }
 
@@ -297,6 +389,11 @@ function makeup() {
       }
     });
   }
+  
+  $("input:text, textarea").focus(function() {
+    $(this).parents("form").find(".form-item").css("z-index",2)
+    $(this).parents(".form-item").css("z-index",3)
+  });
 
   $("input:text, textarea").each(function() {
     if (!$(this).prev("label").length && $(this).attr("phvalue")) {
@@ -333,8 +430,18 @@ function makeup() {
       $(this).parents(".form-item").find(".placeholder").click(function() {
         $(this).focus();
       });
-    } else if ($(this).prop("tagName") == "INPUT") {
-      // $(this).wrap("<div class='input-wrapper' />")
+    } else if ($(this).prev("label").hasClass("placeholder")) {
+      $(this).focus(function() {
+        $(this).removeClass("initial");
+        $(this).parents(".form-item").find(".placeholder").hide();
+      });
+      $(this).blur(function() {
+        $(this).prev().prev(".placeholder").hide();
+        if (!$(this).val()) {
+          $(this).addClass("initial");
+          $(this).parents(".form-item").find(".placeholder").show();
+        }
+      });
     }
   });
 
@@ -378,6 +485,24 @@ function calendarFirstInCallback(carousel, item, idx, state) {
   carousel.list.find("li").removeClass("next").removeClass("prev");
   carousel.list.find("li[jcarouselindex='"+parseInt(idx+1)+"']").addClass("next");
   carousel.list.find("li[jcarouselindex='"+parseInt(idx-1)+"']").addClass("prev");
+  if (carousel.list.find(".calendar-day-byweek").length) {
+    $(".calendar-day-byweek").css("height",carousel.list.height());
+  }
+  if (idx > 1) {
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-prev span").html(carousel.list.find("li[jcarouselindex='"+parseInt(idx-1)+"']").find(".calendar-month-curr").html().split(",")[0]);
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-prev").show();
+  } else {
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-prev span").html("")
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-prev").hide();
+  }
+  if (idx < carousel.list.find("li").length) {
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-next span").html(carousel.list.find("li[jcarouselindex='"+parseInt(idx+1)+"']").find(".calendar-month-curr").html().split(",")[0]);
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-next").show();
+  } else {
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-next span").html("")
+    carousel.list.parents(".calendar-carousel").find(".calendar-month-next").hide();
+  }
+  
 };
 function calendarLastInCallback(carousel, item, idx, state) {
   carousel.list.find("li").removeClass("next").removeClass("prev");
@@ -420,31 +545,74 @@ function validateForms() {
   
   var validatorPersonal = $("#personalForm").bind("invalid-form.validate", function() {
   	    
-  	  }).validate({
-  	  focusInvalid: false,
-  	  sendForm : false,
-  	  messages: {
-  	    personal_name_1: "&mdash; Обязательное для заполнения поле",
-  	    personal_hotel: "&mdash; Обязательное для заполнения поле",
-  	    personal_contactperson: "&mdash; Обязательное для заполнения поле"
-        
-  	  },
-  	  errorPlacement: function(error, element) {
-  	    // element.parents(".input-wrapper").addClass("input-wrapper-error");
-        error.insertAfter(element);
-  	  },
-  	  unhighlight: function(element, errorClass, validClass) {
-  	    // $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
-  	    $(element).removeClass(errorClass);
-        $(element).next("label.error").remove();
-  	  },
-  	  invalidHandler: function(form, validatorPersonal) {
-  	      var errors = validatorPersonal.numberOfInvalids();
-  	      if (errors) {                    
-  	          validatorPersonal.errorList[0].element.focus();
-  	      }
-  	  } 
-  	});
+    }).validate({
+    focusInvalid: false,
+    sendForm : false,
+    rules: {
+      personal_email: {
+        email: true
+      }
+    },
+    messages: {
+      personal_name_1: "&mdash; Обязательное для заполнения поле",
+      personal_hotel: "&mdash; Обязательное для заполнения поле",
+      personal_contactperson: "&mdash; Обязательное для заполнения поле",
+      personal_email: "&mdash; Введите правильный адрес"
+      
+    },
+    errorPlacement: function(error, element) {
+      // element.parents(".input-wrapper").addClass("input-wrapper-error");
+      error.insertAfter(element);
+    },
+    unhighlight: function(element, errorClass, validClass) {
+      // $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+      $(element).removeClass(errorClass);
+      $(element).next("label.error").remove();
+    },
+    invalidHandler: function(form, validatorPersonal) {
+        var errors = validatorPersonal.numberOfInvalids();
+        if (errors) {                    
+            validatorPersonal.errorList[0].element.focus();
+        }
+    } 
+  });
+  
+  var validatorFeedback = $("#feedbackForm").bind("invalid-form.validate", function() {
+  	    
+    }).validate({
+    focusInvalid: false,
+    sendForm : false,
+    rules: {
+      feedback_email: {
+        email: true,
+        required: true
+      }
+    },
+    messages: {
+      feedback_name: "&mdash; Обязательное для заполнения поле",
+      feedback_city: "&mdash; Выберите правильную опцию",
+      feedback_region: "&mdash; Выберите правильную опцию",
+      feedback_topic: "&mdash; Обязательное для заполнения поле",
+      feedback_message: "&mdash; Не введен текст сообщения",
+      feedback_email: "&mdash; Введите правильный адрес"
+      
+    },
+    errorPlacement: function(error, element) {
+      // element.parents(".input-wrapper").addClass("input-wrapper-error");
+      error.insertAfter(element);
+    },
+    unhighlight: function(element, errorClass, validClass) {
+      // $(element).parents(".input-wrapper").removeClass("input-wrapper-error");
+      $(element).removeClass(errorClass);
+      $(element).next("label.error").remove();
+    },
+    invalidHandler: function(form, validatorfeedback) {
+        var errors = validatorfeedback.numberOfInvalids();
+        if (errors) {                    
+            validatorfeedback.errorList[0].element.focus();
+        }
+    } 
+  });
   
 }
 
@@ -550,6 +718,9 @@ function validateForms() {
             div.addClass("selected");
             div.parents(".param-open").removeClass("param-open");
           });
+          if ($(this).attr("val")) {
+            selector.parents(".form-item").find("label.error").remove();
+          }
         });
       
       }
