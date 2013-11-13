@@ -16,6 +16,12 @@ $(document).ready(function () {
 
   makeup();
   
+  // Handling popups
+  
+  $(".popup-link").click(function() {
+    openPopup($(this).attr("rel"))
+  });
+  
   // Toggling centers photos
   
   $(".center-gallery .more-photos").click(function() {
@@ -728,3 +734,55 @@ function validateForms() {
     
   };
 })( jQuery );
+
+function pupMakeup(popup) {
+  var popup = popup;
+  var pupTop = $(window).scrollTop() + ($(window).height() - popup.outerHeight(true))/2;
+  if (pupTop < 20) pupTop = 20;
+  $(".tint").css("height",$("body").height()).css("width",$("body").width());
+  if (!popup.hasClass("price-popup")) {
+    popup.css("top",pupTop).css("left",($(window).width()-popup.outerWidth(true))/2 - 20);
+  } else {
+    popup.css("margin-top",$(window).scrollTop() - popup.parent().offset().top - popup.parent().outerHeight(true) + ($(window).height()-popup.outerHeight(true))/2);
+  }
+  
+}
+
+function openPopup(pupId) {
+  var popup = $("#"+pupId);
+  popup.show().addClass("popup-act").fadeTo(0,1);
+  $("body").append("<div class='tint' />");
+  
+  if (!popup.children(".popup-shadow").length) {
+    popup.append("<div class='popup-shadow' />");
+  } 
+  
+  popup.fadeIn(250);
+  pupMakeup(popup);
+  $(".tint").fadeIn(250);
+  jQuery(document).keydown(function(e){
+    if (e == null) { // ie
+      keycode = event.keyCode;
+    } else { // mozilla
+      keycode = e.which;
+    }
+    
+    if(keycode == 27){ // escape, close box
+      closePopup()
+    }
+    
+  });
+  
+  $(".tint").on("click", function () {
+    closePopup()
+  });
+  
+  $(".popup .close").on("click", function () {
+    closePopup()
+  });
+}
+
+function closePopup() {
+  $(".tint").remove();
+  $(".popup").hide();
+}
