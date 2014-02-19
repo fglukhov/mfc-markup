@@ -32,6 +32,9 @@
 <script type="text/javascript" src="js/calendar.js"></script>
 <script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+
+<link type="text/css" rel="stylesheet" href="js/tn3/skins/mfc/mfc.css"></link>
+<script type="text/javascript" src="js/tn3/js/jquery.tn3lite.min.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
@@ -211,7 +214,7 @@
           	        <div class="tab" rel="course-studies">
           	          <span>Занятия в рамках курса</span>
           	        </div>
-                    <div class="tab" rel="course-results">
+                    <div class="tab act" rel="course-results">
           	          <span>Итоги реализации</span>
           	        </div>
           	      </div>
@@ -741,170 +744,227 @@
           	          
                       <div class="page-text">
                       	<h3>Итоги реализации</h3>
-                      	
-                      	<h4>Вопросы</h4>
                         
-                        <ul>
-                          <li>Заполнение констант</li>
-                          <li>Заполнение справочников</li>
-                          <li>Учетная политика</li>
-                          <li>Ввод начальных остатков</li>
-                          <li>Текущие операции бухгалтерского учета</li>
-                          <li>Поступление имущества</li>
-                          <li>Реализация имущества</li>
-                          <li>Закрытие месяца</li>
-                          <li>Формирование отчетов</li>
-                        </ul>
+                        <div class="tabbed-content common-tabs common-tabs-2 courses-tabs">
+                          <div class="tabs">
+                            <div class="tab" rel="courses-results-questions">
+                              <span>Вопросы</span>
+                            </div>
+                            <div class="tab act" rel="courses-results-online">
+                              <span>Итоги он-лайн трансляции</span>
+                            </div>
+                            <div class="tab" rel="courses-results-photo">
+                              <span>Фотоотчет</span>
+                            </div>
+                            <div class="tab" rel="courses-results-reviews">
+                              <span>Отзывы</span>
+                            </div>
+                          </div>
+                          <div class="tabs-content">
+                          
+                            <!-- Вопросы -->
+                            <div class="tab-content" rel="courses-results-questions">
+                              
+                              <h4>Вопросы</h4>
+                        
+                              <ul>
+                                <li>Заполнение констант</li>
+                                <li>Заполнение справочников</li>
+                                <li>Учетная политика</li>
+                                <li>Ввод начальных остатков</li>
+                                <li>Текущие операции бухгалтерского учета</li>
+                                <li>Поступление имущества</li>
+                                <li>Реализация имущества</li>
+                                <li>Закрытие месяца</li>
+                                <li>Формирование отчетов</li>
+                              </ul>
+                              
+                            </div>
+                            
+                            <!-- Итоги он-лайн трансляции -->
+                            <div class="tab-content" rel="courses-results-online">
+                              
+                              <h4>Итоги онлайн-трансляции</h4>
+                      
+                              <div class="course-gallery fc" rel="course_gallery_1">
+                                <a href="#">
+                                  <img src="files/gallery/176x116/1.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/2.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/3.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/4.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/5.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/6.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/7.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/8.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/9.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/10.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/11.jpg"/>
+                                </a>
+                                
+                                <a href="#">
+                                  <img src="files/gallery/176x116/12.jpg"/>
+                                </a>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                            <!-- Фотоотчет -->
+                            <div class="tab-content" rel="courses-results-photo">
+                              
+                              <h4>Фотоотчет</h4>
+                      
+                              <div class="fancybox-gallery fc">
+                                <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                                  <img src="files/gallery-1-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                                  <img src="files/gallery-2-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                                  <img src="files/gallery-1-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                                  <img src="files/gallery-2-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                                  <img src="files/gallery-1-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
+                                  <img src="files/gallery-2-tmb.jpg" alt=""/>
+                                </a>
+                                
+                                <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
+                                  <img src="files/gallery-1-tmb.jpg" alt=""/>
+                                </a>
+                              </div>
+                              
+                            </div>
+                            
+                            <!-- Отзывы -->
+                            <div class="tab-content" rel="courses-results-reviews">
+                              
+                              <h4>Отзывы</h4>
+                      
+                              <div class="course-reviews">
+                                <div class="course-reviews-item fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item review-hidden fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item review-hidden fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item review-hidden fc">
+                                  <div class="pic">
+                                    <img src="files/review-tmb-1.jpg"/>
+                                  </div>
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="ttl">Компания Крафтман Украина:</div>
+                                      Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div class="more-reviews"><span>Еще отзывы</span></div>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
                         
                       </div>
-                        
-                      <h4>Итоги онлайн-трансляции</h4>
-                      
-                      <div class="fancybox-gallery fc">
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery1">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery1">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                      </div>
-                      
-                      <h4>Фотоотчет</h4>
-                      
-                      <div class="fancybox-gallery fc">
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="2nd title" class="fancybox" href="files/gallery-2.jpg" rel="gallery2">
-                          <img src="files/gallery-2-tmb.jpg" alt=""/>
-                        </a>
-                        
-                        <a title="Текущие операции бухгалтерского учета" class="fancybox" href="files/gallery-1.jpg" rel="gallery2">
-                          <img src="files/gallery-1-tmb.jpg" alt=""/>
-                        </a>
-                      </div>
-
-                      <h4>Отзывы</h4>
-                      
-                      <div class="course-reviews">
-                        <div class="course-reviews-item fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        <div class="course-reviews-item fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        <div class="course-reviews-item fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        <div class="course-reviews-item review-hidden fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        <div class="course-reviews-item review-hidden fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        <div class="course-reviews-item review-hidden fc">
-                          <div class="pic">
-                            <img src="files/review-tmb-1.jpg"/>
-                          </div>
-                          <div class="descr">
-                            <div class="pt"></div>
-                            <div class="cont">
-                              <div class="ttl">Компания Крафтман Украина:</div>
-                              Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
-                            </div>
-                          </div>
-                        </div>
-                        
-                        <div class="more-reviews"><span>Еще отзывы</span></div>
-                        
-                      </div>
-                        
-                        
-                      
-                      
                       
           	        </div>
           	        <!-- Курс - итоги реализации END -->
@@ -4694,7 +4754,123 @@
 <!-- Pop-ups -->
 
 
-
+<div class="gallery-popup" id="course_gallery_1">
+	<div class="gallery">
+		<div class="tn3 album">
+			
+			<ol>
+				<li>
+          <h4>Бухгалтерский учет и налогообложение операций с ценными бумагами. одготовка финансовой отчетности и налоговых деклараций</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/1.jpg">
+            <img src="files/gallery/176x116/1.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Isolated sandy cove</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/2.jpg">
+            <img src="files/gallery/176x116/2.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>A view from the Old Town</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/3.jpg">
+            <img src="files/gallery/176x116/3.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Walls of the Old Town</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/4.jpg">
+            <img src="files/gallery/176x116/4.jpg"/>
+          </a>
+				</li>
+				<li>
+				<h4>Boat in the port</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/5.jpg">
+            <img src="files/gallery/176x116/5.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Wall of the Jain temple</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/6.jpg">
+            <img src="files/gallery/176x116/6.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>City park</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/7.jpg">
+            <img src="files/gallery/176x116/7.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Taj Mahal mausoleum</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/8.jpg">
+            <img src="files/gallery/176x116/8.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Zante Port</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/9.jpg">
+            <img src="files/gallery/176x116/9.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Rustovo Monastery</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/10.jpg">
+            <img src="files/gallery/176x116/10.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>The Mezquita, Cathedral and former Great Mosque</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/11.jpg">
+            <img src="files/gallery/176x116/11.jpg"/>
+          </a>
+				</li>
+				<li>
+          <h4>Wine Cellars</h4>
+          <div class="tn3 description">
+            
+          </div>
+          <a href="files/gallery/12.jpg">
+            <img src="files/gallery/176x116/12.jpg"/>
+          </a>
+				</li>
+			</ol>
+		</div>
+	</div>
+</div>
 
 
 <!-- Pop-ups END -->
