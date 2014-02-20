@@ -6,36 +6,22 @@ var hostname = document.location.protocol + '//' + document.location.hostname;
 
 $(document).ready(function () {
 
+  handleReviews();
+
   if ($("#course_gallery_1").length) {
+  
+    $(".course-descr-finished .signup").click(function() {
+      return false;
+    });
     
     //Thumbnailer.config.shaderOpacity = 1;
     var $course_gallery_1 = $('#course_gallery_1 .gallery').tn3({
       responsive: false,
       imageClick:"fullscreen",
       image:{
-      maxZoom:1.5,
-      crop:true,
-      clickEvent:"dblclick",
-      transitions:[{
-      type:"blinds"
-      },{
-      type:"grid"
-      },{
-      type:"grid",
-      duration:460,
-      easing:"easeInQuad",
-      gridX:1,
-      gridY:8,
-      // flat, diagonal, circle, random
-      sort:"random",
-      sortReverse:false,
-      diagonalStart:"bl",
-      // fade, scale
-      method:"scale",
-      partDuration:360,
-      partEasing:"easeOutSine",
-      partDirection:"left"
-      }]
+        maxZoom:1.5,
+        crop:true,
+        clickEvent:"dblclick"
       },
       thumbnailer:{
         overMove: false
@@ -63,11 +49,92 @@ $(document).ready(function () {
       return false;
     });
     
-    $(".gallery-close").click(function() {
-      $(".popup-gallery").fadeOut(150,function() {
-        $(".popup-gallery").css("left",-20000);
+    $(".gallery-close").on("click",function() {
+      $(".gallery-popup").fadeOut(150,function() {
+        $(".gallery-popup").css("left",-20000);
       });
     });
+    
+    jQuery(document).keydown(function(e){
+      if (e == null) { // ie
+        keycode = event.keyCode;
+      } else { // mozilla
+        keycode = e.which;
+      }
+
+
+
+      if(keycode == 27){ // escape, close box
+        $(".gallery-popup").fadeOut(150,function() {
+          $(".gallery-popup").css("left",-20000);
+        });
+      }
+      
+    });
+    
+    
+  }
+  
+  if ($("#course_gallery_2").length) {
+    
+    //Thumbnailer.config.shaderOpacity = 1;
+    var $course_gallery_2 = $('#course_gallery_2 .gallery').tn3({
+      responsive: false,
+      imageClick:"fullscreen",
+      image:{
+        maxZoom:1.5,
+        crop:true,
+        clickEvent:"dblclick"
+      },
+      thumbnailer:{
+        overMove: false
+      }
+    }).data('tn3');
+    
+    $course_gallery_2.resize($(window).width(),$(window).height() - 200);
+    
+    $(window).resize(function() {
+      $course_gallery_2.resize($(window).width(),$(window).height() - 200);
+    })
+    
+    $(".course-gallery a").click(function() {
+      
+      var galId = $(this).parents(".course-gallery").attr("rel");
+      
+      var gal = $("#"+galId);
+      
+      gal.css({
+        left: 0,
+      }).hide().fadeIn(150);
+      
+      gal.find(".tn3-thumbs li").eq($(this).prevAll("a").length).click();
+      
+      return false;
+    });
+    
+    $(".gallery-close").on("click",function() {
+      $(".gallery-popup").fadeOut(150,function() {
+        $(".gallery-popup").css("left",-20000);
+      });
+    });
+    
+    jQuery(document).keydown(function(e){
+      if (e == null) { // ie
+        keycode = event.keyCode;
+      } else { // mozilla
+        keycode = e.which;
+      }
+
+
+
+      if(keycode == 27){ // escape, close box
+        $(".gallery-popup").fadeOut(150,function() {
+          $(".gallery-popup").css("left",-20000);
+        });
+      }
+      
+    });
+    
     
   }
 
@@ -1539,6 +1606,39 @@ function citySelector() {
       });
       
     })
+    
+  }
+}
+
+function handleReviews() {
+  if ($(".course-reviews").length) {
+    $(".course-reviews-item .text-cont").each(function() {
+      if ($(this).height() > 200) {
+        $(this).parents(".course-reviews-item").find(".expand-trigger span").show();
+      }
+    });
+    
+    $(".course-reviews .expand-trigger span").click(function() {
+      if (!$(this).hasClass("expanded")) {
+        $(this).addClass("expanded").html("Свернуть")
+        $(this).parents(".descr").css({
+          height: "auto",
+          zIndex: 200
+        });
+        $(this).parents(".cont").find(".text").css({
+          height: "auto"
+        });
+      } else {
+        $(this).removeClass("expanded").html("Развернуть")
+        $(this).parents(".descr").css({
+          height: 332,
+          zIndex: ""
+        });
+        $(this).parents(".cont").find(".text").css({
+          height: 200
+        });
+      }
+    });
     
   }
 }
