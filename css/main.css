@@ -5108,13 +5108,13 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
   padding:0 0 18px 0;
 }
 
-.course-descr .prices {
+.price-content .prices {
   padding:15px 0 0 43px;
   font-size:18px;
   font-weight:bold;
 }
 
-.course-descr .prices .cat {
+.price-content .prices .cat {
   font-size:12px;
   font-family:Arial, Helvetica;
   padding-top:2px;
@@ -5122,28 +5122,44 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
   display:block;
 }
 
-.course-descr .price-1 {
+.price-content .price-1 {
   background:url(../images/price-sep-main.png) right 3px no-repeat;
 }
 
-.course-descr .price span {
+.price-content .price span {
   display:block;
   white-space:nowrap;
 }
 
-.course-descr .price-1 {
+.price-content .price-1 {
   color:#e74225;
   float:left;
   padding: 0 10px 0 0;
   margin: 0 10px 0 0;
 }
 
-.course-descr .price-2 {
+.price-content .price-2 {
   float:left;
+  padding:0 !important;
+  margin:0 !important;
+  background:none !important;
+  border:none !important;
 }
 
-.course-descr .signup,
-.course-descr .signup:visited {
+.events-table-2 .price-content .prices span {
+  font-size: 18px;
+}
+
+.events-table-2 .price-content .prices .cat {
+  font-size:12px;
+  font-family:Arial, Helvetica;
+  padding-top:2px;
+  font-weight:normal;
+  display:block;
+}
+
+.price-content .signup,
+.price-content .signup:visited {
   clear:left;
   background:#e74225;
   display:block;
@@ -5179,7 +5195,8 @@ table.course-details td.name {
   width: 150px;
 }
 
-.course-content h3 {
+.course-content h3,
+.courses-content h3 {
   margin:37px 0 16px 0;
   font-weight:bold;
 }
@@ -5192,8 +5209,6 @@ table.course-details td.name {
 .course-map {
   height:206px;
 }
-
-
 
 .course-descr-finished {
   background:#f4f7f5;
@@ -5221,4 +5236,232 @@ table.course-details td.name {
   padding: 12px 18px;
   margin: -11px 0 14px -8px;
   display: inline-block;
+}
+
+.courses-list {
+  width:100%;
+  margin:20px 0 0 0;
+}
+
+.courses-list th {
+  border-bottom:2px solid #347d3f;
+  font-size:12px;
+  line-height:12px;
+  font-family:'PT Sans';
+  color:#757575;
+  vertical-align:middle;
+  padding:0 25px 14px 0;
+  white-space:nowrap;
+}
+
+.courses-list td {
+  padding: 24px 25px 28px 0;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 18px;
+}
+
+.courses-list .name {
+  font-weight:bold;
+  width:230px;
+}
+
+.courses-list .date {
+  width:144px;
+}
+
+.courses-list .address {
+  width:210px;
+}
+
+.courses-list .place {
+}
+
+.courses-list tr:last-child td {
+  border-bottom:none;
+}
+
+.courses-list td:last-child,
+.courses-list th:last-child {
+  padding-right:0;
+}
+
+.seminars-table .price-content {
+  background:#fbfcfb;
+}
+
+.seminars-table tr:hover .price-content {
+  background:#fff;
+}
+
+.seminars-table tr:hover {
+  background:#fbfcfb;
+}
+
+.seminars-table .ttl {
+  font-size:18px;
+  line-height:21px;
+  margin:0 0 18px 0;
+}
+
+.seminars-table .course-date-big {
+  font-size:14px;
+  line-height:18px;
+  margin:0;
+}
+
+.seminars-table td {
+  font-size:14px;
+  line-height:18px;
+  font-family:'PT Sans';
+  padding:16px 20px 28px 20px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+.seminars-table tr:hover {
+  background:#f4f7f5;
+}
+
+.seminars-table a,
+.seminars-table a:visited {
+  text-decoration:none;
+}
+
+.seminars-table a:hover {
+  text-decoration:underline;
+}
+
+.seminars-table .check-in,
+.seminars-table .cat {
+  font-weight:normal;
+  color:#000;
+  display:block;
+  padding-top:9px;
+}
+
+.seminars-table .date {
+  color:#e74225;
+  font-size:14px;
+  line-height:18px;
+  padding-top:34px;
+  width:199px;
+  padding-right:15px;
+}
+
+.seminars-table .date span {
+  /* white-space:nowrap; */
+}
+
+.seminars-table {
+  margin:0 -20px;
+  width:785px;
+}
+
+.seminars-table .red {
+  color:#e74225;
+}
+
+.seminars-table .sign-up a,
+.seminars-table .sign-up a:visited {
+  color:#fff;
+  background-color:#e74225;
+  padding:9px 0 9px 0;
+  font-size:14px;
+  font-family:'Arial';
+  font-weight:normal;
+  display:block;
+  width:150px;
+  text-align:center;
+  margin-top:2px;
+}
+
+.seminars-table .sign-up a:hover {
+  text-decoration:none;
+}
+
+.seminars-table .name {
+  width:480px;
+}
+
+.seminars-table .price {
+  padding:18px 20px 18px 10px;
+}
+
+.seminars-table .price-content {
+  background:#f4f7f5;
+  width:235px;
+  padding:0 0 18px 0;
+}
+
+.seminars-table .prices {
+  padding:15px 0 0 43px;
+}
+
+.seminars-table .prices .cat {
+  font-size:12px;
+  font-family:Arial, Helvetica;
+  padding-top:2px;
+}
+
+.seminars-table tr:hover .price-content {
+  background:#fff;
+}
+
+.seminars-table tr.hover-prev td,
+.seminars-table tr:hover td {
+  border-color:#f4f7f5;
+}
+
+.seminars-table .price-1 {
+  background:url(../images/price-sep-main.png) right 3px no-repeat;
+}
+
+.seminars-table .price span {
+  display:block;
+  white-space:nowrap;
+}
+
+.seminars-table .price-1 {
+  color:#e74225;
+  float:left;
+  padding: 0 10px 0 0;
+  margin: 0 10px 0 0;
+}
+
+.seminars-table .price-2 {
+  float:left;
+}
+
+.seminars-table tr.last td {
+  /* border-bottom:none; */
+}
+
+.seminars-table .signup,
+.seminars-table .signup:visited {
+  clear:left;
+  background:#e74225;
+  display:block;
+  margin: 20px 43px 0 43px;
+  padding: 9px 0;
+  text-align: center;
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-family:Arial,Helvetica;
+  font-weight:normal;
+}
+
+.more-seminars {
+  font-size:18px;
+  line-height:22px;
+  padding:14px 0 19px 0;
+  font-family:'PT Sans';
+}
+
+.more-seminars a {
+  text-decoration:none;
+  background:url(../images/ul-dotted-green.gif) 0 21px repeat-x;
+}
+
+.seminars-table .tabs-content {
+  padding-bottom:3px;
 }

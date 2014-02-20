@@ -143,7 +143,7 @@ $(document).ready(function () {
   }
 
   $(".events-table tr").hover(function() {
-    $(".hover-next").removeClass("hover-prev");
+    $(".hover-prev").removeClass("hover-prev");
     $(this).prev("tr").addClass("hover-prev");
   });
 
