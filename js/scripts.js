@@ -6,61 +6,70 @@ var hostname = document.location.protocol + '//' + document.location.hostname;
 
 $(document).ready(function () {
 
-
-  //Thumbnailer.config.shaderOpacity = 1;
-  var $course_gallery_1 = $('#course_gallery_1 .gallery').tn3({
-    responsive: false,
-    imageClick:"fullscreen",
-    image:{
-    maxZoom:1.5,
-    crop:true,
-    clickEvent:"dblclick",
-    transitions:[{
-    type:"blinds"
-    },{
-    type:"grid"
-    },{
-    type:"grid",
-    duration:460,
-    easing:"easeInQuad",
-    gridX:1,
-    gridY:8,
-    // flat, diagonal, circle, random
-    sort:"random",
-    sortReverse:false,
-    diagonalStart:"bl",
-    // fade, scale
-    method:"scale",
-    partDuration:360,
-    partEasing:"easeOutSine",
-    partDirection:"left"
-    }]
-    },
-    thumbnailer:{
-      overMove: false
-    }
-  }).data('tn3');
-  
-  $course_gallery_1.resize($(window).width(),$(window).height() - 200);
-  
-  $(window).resize(function() {
+  if ($("#course_gallery_1").length) {
+    
+    //Thumbnailer.config.shaderOpacity = 1;
+    var $course_gallery_1 = $('#course_gallery_1 .gallery').tn3({
+      responsive: false,
+      imageClick:"fullscreen",
+      image:{
+      maxZoom:1.5,
+      crop:true,
+      clickEvent:"dblclick",
+      transitions:[{
+      type:"blinds"
+      },{
+      type:"grid"
+      },{
+      type:"grid",
+      duration:460,
+      easing:"easeInQuad",
+      gridX:1,
+      gridY:8,
+      // flat, diagonal, circle, random
+      sort:"random",
+      sortReverse:false,
+      diagonalStart:"bl",
+      // fade, scale
+      method:"scale",
+      partDuration:360,
+      partEasing:"easeOutSine",
+      partDirection:"left"
+      }]
+      },
+      thumbnailer:{
+        overMove: false
+      }
+    }).data('tn3');
+    
     $course_gallery_1.resize($(window).width(),$(window).height() - 200);
-  })
-  
-  $(".course-gallery a").click(function() {
     
-    var galId = $(this).parents(".course-gallery").attr("rel");
+    $(window).resize(function() {
+      $course_gallery_1.resize($(window).width(),$(window).height() - 200);
+    })
     
-    var gal = $("#"+galId);
+    $(".course-gallery a").click(function() {
+      
+      var galId = $(this).parents(".course-gallery").attr("rel");
+      
+      var gal = $("#"+galId);
+      
+      gal.css({
+        left: 0,
+      }).hide().fadeIn(150);
+      
+      gal.find(".tn3-thumbs li").eq($(this).prevAll("a").length).click();
+      
+      return false;
+    });
     
-    gal.css({
-      left: 0,
-    }).hide().fadeIn(150);
+    $(".gallery-close").click(function() {
+      $(".popup-gallery").fadeOut(150,function() {
+        $(".popup-gallery").css("left",-20000);
+      });
+    });
     
-    gal.find(".tn3-thumbs li").eq($(this).prevAll("a").length).click();
-    
-    return false;
-  });
+  }
 
   if ($("input:radio").length) {
     $("input:radio").iCheck();
