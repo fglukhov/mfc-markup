@@ -2,7 +2,7 @@
 
 function init () {
     var myMap = new ymaps.Map("center_map_2", {
-            center: [55.79249, 37.70991],
+            center: [55.79249, 37.70091],
             zoom: 15
         }),
 
@@ -20,9 +20,9 @@ function init () {
             iconImageOffset: [-34, -33]
         });
         
-    myMap.controls
+    //myMap.controls
         // Кнопка изменения масштаба.
-        .add('zoomControl', { left: 5, top: 5 })
+        //.add('zoomControl', { left: 5, top: 5 })
         
 
     // Добавляем все метки на карту.
