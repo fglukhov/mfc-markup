@@ -17,8 +17,10 @@ var hostname = document.location.protocol + '//' + document.location.hostname;
 $(document).ready(function () {
 
   $(".clients-list .link").click(function() {
+    $(".clients-list li").removeClass("act");
+    $(".file-link-wrapper").hide();
     $(this).parents("li").toggleClass("act");
-    $(this).parents("li").find(".file-link-small").slideToggle(150);
+    $(this).parents("li").find(".file-link-wrapper").slideToggle(150);
   });
 
   if ($(".center-photos").length) {
@@ -554,390 +556,126 @@ $(document).ready(function () {
 
 
 (function( $ ) {
-	$.fn.customSelect = function() {
-	var selects = $(this);
-	selects.each(function () {
-	var select = $(this);
-
-	if (!$(this).next(".param-selector").length) {
-	select.css("visibility","hidden").css("position","absolute").css("z-index","-1");
-	select.after("<div class='param-selector' id='" + select.attr("id") + "-selector'>");
-	var selector = select.next(".param-selector");
-
-	if (select.is(":disabled")) {
-	selector.addClass("selector-disabled")
-	}
-
-
-	selector.append("<div class='param-sel' />").append("<div class='dropdown' />");
-	var dropdown = selector.find(".dropdown");
-	// dropdown.append("<div class='top-border' />");
-	var paramSel = selector.find(".param-sel");
-	paramSel.addClass("initial");
-	paramSel.append("<div class='arr' />");
-	paramSel.append("<div class='sel-value' />");
-
-	if (select.find("option[value=" + select.val() + "]").attr("flag")) {
-	paramSel.find(".sel-value").html("<img src='" + select.find("option[value=" + select.val() + "]").attr("flag") + "' />" + select.find("option[value=" + select.val() + "]").html());
-	} else {
-	paramSel.find(".sel-value").html(select.find("option[value=" + select.val() + "]").html());
-	}
-
-	select.find("option").each(function () {
-	if ($(this).attr("flag")) {
-	var flag = "<img src=" + $(this).attr("flag") + " />";
-	} else {
-	flag = "";
-	}
-	if ($(this).val() != select.val()/* || select.attr("ttl")*/) {
-	dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
-	} else {
-	dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
-	}
-	});
-
-
-	paramSel.click(function() {
-	if (!select.is(":disabled")) {
-	if (dropdown.css("display") != "block") {
-	$(".dropdown").fadeOut(150);
-	$(".param-open").removeClass("param-open");
-	dropdown.fadeIn(150);
-	selector.addClass("param-open");
-	var maxWidth = 0;
-
-	$(this).parents(".form-item").prevAll(".form-item").css("z-index","100");
-	$(this).parents(".form-item").css("z-index","1000");
-	$(this).parents(".form-item").nextAll(".form-item").css("z-index","100");
-
-	dropdown.find("div").each(function () {
-	if ($(this).width() >= maxWidth) {
-	maxWidth = $(this).width();
-	}
-	if (paramSel.width() >= maxWidth) {
-	maxWidth = paramSel.width() + 1;
-	}
-
-
-	});
-
-	//paramSel.css("width", maxWidth + "px");
-	// dropdown.find("div").css("width", maxWidth + "px");
-	// dropdown.css("width", maxWidth);
-
-
-	// ddOverflow = $("html").height() - (dropdown.offset().top + dropdown.height());
-	// if (ddOverflow < 0) {
-	// dropdown.css("margin-top", -30 - dropdown.height());
-	// }
-
-
-
-
-	//dropdown.css("top",paramSel.position().top + paramSel.height());
-
-
-	} else {
-	dropdown.fadeOut(150);
-	selector.removeClass("param-open");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	});
-
-
-
-
-
-
-
-
-
-
-	dropdown.find("div").click(function () {
-	selector.removeClass("param-sel-error");
-	paramSel.removeClass("initial");
-	var div = $(this);
-	paramSel.find(".sel-value").html($(this).html());
-	if ($(this).attr("flag")) {
-	paramSel.find(".sel-value").attr("flag",$(this).attr("flag"));
-	}
-	select.val($(this).attr("val")).change();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	if (select.hasClass("hide-ttl")) {
-	//select.find("option[value='']").remove();
-	dropdown.find("div[val='']").remove();
-	}
-
-
-
-
-
-
-	dropdown.fadeOut(150, function () {
-	dropdown.find("div").show().removeClass("selected");
-
-	div.addClass("selected");
-	div.parents(".param-open").removeClass("param-open");
-
-
-
-
-
-	});
-	if ($(this).attr("val")) {
-	selector.parents(".form-item").find("label.error").remove();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-
-	});
-
-
-
-
-
-
-
-
-
-
-	};
+  $.fn.customSelect = function() {
+    var selects = $(this);
+    selects.each(function () {
+      var select = $(this);
+      
+      if (!$(this).next(".param-selector").length) {
+        select.css("visibility","hidden").css("position","absolute").css("z-index","-1");
+        select.after("<div class='param-selector' id='" + select.attr("id") + "-selector'>");
+        var selector = select.next(".param-selector");
+        
+        if (select.is(":disabled")) {
+          selector.addClass("selector-disabled")
+        }
+        
+        
+        selector.append("<div class='param-sel' />").append("<div class='dropdown' />");
+        var dropdown = selector.find(".dropdown");
+        // dropdown.append("<div class='top-border' />");
+        var paramSel = selector.find(".param-sel");
+        paramSel.addClass("initial");
+        paramSel.append("<div class='arr' />");
+        paramSel.append("<div class='sel-value' />");
+        
+        if (select.find("option[value=" + select.val() + "]").attr("flag")) {
+          paramSel.find(".sel-value").html("<img src='" + select.find("option[value=" + select.val() + "]").attr("flag") + "' />" + select.find("option[value=" + select.val() + "]").html());
+        } else {
+          paramSel.find(".sel-value").html(select.find("option[value=" + select.val() + "]").html());
+        }
+        
+        select.find("option").each(function () {
+          if ($(this).attr("flag")) {
+            var flag = "<img src=" + $(this).attr("flag") + " />";
+          } else {
+            flag = "";
+          }
+          
+          if (select.find("option").length > 2) {
+          
+            if ($(this).val() != select.val() /* || select.attr("ttl")*/) {
+              dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            } else {
+              dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            }
+            
+          } else {
+            dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+          }
+          
+        });
+      
+      
+        paramSel.on("click",function() {
+          $(this).parents(".common-form").find(".form-item").css("z-index",1);
+          $(this).parents(".form-item").css("z-index",10);
+          if (!select.is(":disabled")) {
+            if (dropdown.css("display") != "block") {
+              $(".dropdown").fadeOut(150);
+              $(".param-open").removeClass("param-open");
+              dropdown.fadeIn(150);
+              selector.addClass("param-open");
+              var maxWidth = 0;
+              
+              $(this).parents(".form-item").prevAll(".form-item").css("z-index","100");
+              $(this).parents(".form-item").css("z-index","1000");
+              $(this).parents(".form-item").nextAll(".form-item").css("z-index","100");
+              
+              dropdown.find("div").each(function () {
+                if ($(this).width() >= maxWidth) {
+                  maxWidth = $(this).width();
+                }
+                if (paramSel.width() >= maxWidth) {
+                  maxWidth = paramSel.width() + 1;
+                }
+              });
+              
+              //paramSel.css("width", maxWidth + "px");
+              // dropdown.find("div").css("width", maxWidth + "px");
+              // dropdown.css("width", maxWidth);
+              
+              // ddOverflow = $("html").height() - (dropdown.offset().top + dropdown.height());
+              // if (ddOverflow < 0) {
+                // dropdown.css("margin-top", -30 - dropdown.height());
+              // }
+              
+              //dropdown.css("top",paramSel.position().top + paramSel.height());
+              
+            } else {
+              dropdown.fadeOut(150);
+              selector.removeClass("param-open");
+            }
+          }
+        });
+        
+        dropdown.find("div").on("click",function () {
+          selector.removeClass("param-sel-error");
+          paramSel.removeClass("initial");
+          var div = $(this);
+          paramSel.find(".sel-value").html($(this).html());
+          if ($(this).attr("flag")) {
+            paramSel.find(".sel-value").attr("flag",$(this).attr("flag"));
+          }
+          select.val($(this).attr("val")).change();
+          if (select.hasClass("hide-ttl")) {
+            //select.find("option[value='']").remove();
+            dropdown.find("div[val='']").remove();
+          }
+          dropdown.fadeOut(150, function () {
+            dropdown.find("div").show().removeClass("selected");
+            div.addClass("selected");
+            div.parents(".param-open").removeClass("param-open");
+          });
+          if ($(this).attr("val")) {
+            selector.parents(".form-item").find(".error-wrapper").remove();
+          }
+        });
+      
+      }
+    });
+    
+  };
 })( jQuery );
 
 
