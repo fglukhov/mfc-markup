@@ -3515,7 +3515,7 @@ p.big {
 
 .common-form .param-selector .dropdown div {
   display:block;
-  padding:8px 10px;
+  padding:10px 10px;
   cursor:pointer;
   border-top:1px solid #dcdcdc;
   margin-top:-1px;
@@ -3597,12 +3597,26 @@ p.big {
 }
 
 
+
+.review-hidden {
+  display:none;
+}
+
+/* --- */
+
 .course-reviews {
-  
+  margin:19px -20px 0 0;
 }
 
 .course-reviews-item {
-  margin:0 0 20px 0;
+  margin: 0 20px 20px 0;
+  width: 235px;
+  height:332px;
+  position:relative;
+  float: left;
+  font-size:14px;
+  line-height:18px;
+  font-family:'PT Sans';
 }
 
 .course-reviews-item .pic {
@@ -3612,26 +3626,58 @@ p.big {
 }
 
 .course-reviews-item .descr {
-  float:left;
-  width:575px;
   position:relative;
   background:#fff;
   behavior:url(PIE.htc);
-  -webkit-box-shadow:1px 1px 8px -2px #333;
-  -moz-box-shadow:1px 1px 8px -2px #333;
-  box-shadow:1px 1px 8px -2px #333;
+  -webkit-box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+  -moz-box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+  box-shadow:0 0 5px 0 rgba(0,0,0,.5);
+  position:relative;
+  width: 235px;
+  height:332px;
+}
+
+.review-expanded .descr {
+   -webkit-box-shadow:0 0 15px 0 rgba(0,0,0,.62);
+  -moz-box-shadow:0 0 15px 0 rgba(0,0,0,.62);
+  box-shadow:0 0 15px 0 rgba(0,0,0,.62);
+}
+
+.course-reviews-item .text {
+  font-style: italic;
+  height: 200px;
+  overflow: hidden;
 }
 
 .course-reviews-item .descr .cont {
   position:relative;
-  padding:23px 20px;
+  padding:25px 20px 23px 20px;
+  /* height:284px; */
+  position:relative;
+}
+
+.course-reviews-item .expand-trigger {
+  padding:7px 0 18px 0;
+  height:18px;
+}
+
+.course-reviews-item .expand-trigger span {
+  color:#006351;
+  background:url(../images/ul-dotted-green.gif) 0 17px repeat-x;
+  font-style:italic;
+  cursor:pointer;
+  display:none;
+}
+
+.course-reviews-item .subscr {
+  font-weight:bold;
 }
 
 .course-reviews-item .descr .pt {
   position:absolute;
-  width:39px;
+  width:14px;
   height:47px;
-  left:-39px;
+  left:-14px;
   top:16px;
   background:url(../images/review-pt.png) 0 0 no-repeat;
 }
@@ -3642,85 +3688,56 @@ p.big {
   font-weight:bold;
 }
 
-.review-hidden {
-  display:none;
-}
-
-/* --- */
-
-.courses-tabs .course-reviews {
-  margin:19px -20px 0 0;
-}
-
-.courses-tabs .course-reviews-item {
-  margin: 0 20px 20px 0;
-  width: 235px;
-  height:332px;
-  position:relative;
-  float: left;
-}
-
-.courses-tabs .course-reviews-item .pic {
-  margin:0 20px 0 0;
-  width:150px;
+.course-reviews-item .subscr-pic {
+  width:53px;
   float:left;
+  margin:0 10px 0 0;
 }
 
-.courses-tabs .course-reviews-item .descr {
-  position:relative;
-  background:#fff;
-  behavior:url(PIE.htc);
-  -webkit-box-shadow:1px 1px 8px -2px #333;
-  -moz-box-shadow:1px 1px 8px -2px #333;
-  box-shadow:1px 1px 8px -2px #333;
-  position:relative;
-  width: 235px;
-  height:332px;
+.course-reviews-item .subscr-pic img {
+  width:53px;
 }
 
-.courses-tabs .course-reviews-item .text {
-  font-style: italic;
-  height: 200px;
-  overflow: hidden;
+.course-reviews-item .subscr-descr {
+  overflow:hidden;
 }
 
-.courses-tabs .course-reviews-item .descr .cont {
-  position:relative;
-  padding:25px 20px 23px 20px;
-  /* height:284px; */
-  position:relative;
+.reviews-wide .course-reviews-item {
+  width:320px;
+  height:321px;
 }
 
-.courses-tabs .course-reviews-item .expand-trigger {
-  padding:7px 0 18px 0;
-  height:18px;
+.reviews-wide .course-reviews-item .descr {
+  width:320px;
+  height:314px;
 }
 
-.courses-tabs .course-reviews-item .expand-trigger span {
-  color:#006351;
-  background:url(../images/ul-dotted-green.gif) 0 17px repeat-x;
-  font-style:italic;
-  cursor:pointer;
-  display:none;
+.reviews-wide .course-reviews-item .descr .cont {
+  height:136px;
+  padding-bottom:130px;
 }
 
-.courses-tabs .course-reviews-item .subscr {
-  font-weight:bold;
-}
-
-.courses-tabs .course-reviews-item .descr .pt {
+.reviews-wide .subscr {
   position:absolute;
-  width:14px;
-  height:47px;
-  left:-14px;
-  top:16px;
-  background:url(../images/review-pt.png) 0 0 no-repeat;
+  bottom:6px;
 }
 
-.courses-tabs .course-reviews-item .ttl {
-  font-size:18px;
-  margin:0 0 10px 0;
-  font-weight:bold;
+.reviews-wide .review-expanded .descr .cont {
+  height:auto;
+  padding-bottom:109px;
+}
+
+.reviews-wide .review-expanded .subscr {
+  position:absolute;
+  bottom:26px;
+}
+
+.reviews-wide .course-link {
+  font-weight:normal;
+}
+
+.reviews-wide .text {
+  height:126px;
 }
 
 .review-hidden {
@@ -4001,78 +4018,110 @@ ol.search-results li .cont strong {
 }
 
 .reviews-filter {
-  margin:0 0 15px 0;
+  margin:37px 0 15px 0;
+}
+
+.reviews-filter .ttl {
+  float: left;
+  font-weight: bold;
+  padding: 0 17px 0 0;
+  font-family: 'PT Sans';
 }
 
 .reviews-filter .rf-form {
-  float:right;
+  float:left;
+}
+
+.reviews-filter .selected {
+  display:none !important;
 }
 
 .reviews-filter .param-selector {
-  top:-8px;
+  top:-11px;
 }
 
 .reviews-filter .param-sel {
   font-size:14px;
-  font-weight:normal;
-  font-family:'Arial';
+  line-height:18px;
+  font-weight:bold;
+  font-family:'PT Sans';
   width: 432px;
   margin: 0 0 0 0;
-  height: 41px;
-  line-height: 41px;
+  height: 38px;
+  line-height: 38px;
+}
+
+.reviews-filter .param-sel span,
+.reviews-filter .dropdown span {
+  color:#006351;
+  background:url(../images/ul-dotted-green.gif) 0 16px repeat-x;
+  cursor:pointer;
 }
 
 .reviews-filter .param-selector .dropdown {
+  behavior:url(PIE.htc);
+  position:absolute;
+  z-index:20;
+  background:#fff;
+  -webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.5);
+  -moz-box-shadow:0 0 10px 0 rgba(0,0,0,.5);
+  box-shadow:0 0 10px 0 rgba(0,0,0,.5);
+  top: 0;
+  left: -11px;
+  padding:38px 0 0 0;
+  display:none;
   font-size:14px;
-  font-weight:normal;
-  top: 45px;
-  min-width: 434px;
+  line-height:18px;
+  color:#006351;
+  font-family:'PT Sans';
+  font-weight:bold;
+  min-width:200px !important;
+  width:auto !important;
+}
+
+.reviews-filter .dropdown div {
+  border:none !important;
+}
+
+.reviews-filter .dropdown div:hover {
+  background:#eafaec !important;
 }
 
 .reviews-filter .rf-form .param-sel {
-  border:2px solid #81b190;
-  -moz-box-shadow:none;
   -webkit-box-shadow:none;
+  -moz-box-shadow:none;
   box-shadow:none;
+  border:none;
+  height:38px;
+  float:left;
+  width:auto;
+}
+
+.reviews-filter .sel-value {
+  position:relative;
+  z-index:21;
+  padding:0 !important;
 }
 
 .reviews-filter .rf-form .param-selector .arr {
-  background: url(../images/select-arr-2.png) 0 0 no-repeat;
-  width: 36px;
-  height: 36px;
-  right: 1px;
-  top: 1px;
-  position: absolute;
-  cursor: pointer;
+  width: 10px;
+  height: 5px;
+  background: url(../images/cs-darr.png) 0 0 no-repeat;
+  position:absolute;
+  z-index:21;
+  right:-20px;
+  top:18px;
 }
 
 .reviews-filter .param-selector .initial {
-  font-style:italic;
+  /* font-style:italic; */
 }
 
-.reviews-wide {
-  font-family:'PT Sans';
-}
-
-.reviews-wide .course-reviews-item .descr {
-  float: left;
-  width: 830px;
-}
-
-.reviews-wide .course-reviews-item {
-  margin: 0 0 25px 0;
-}
-
-.reviews-wide .course-name {
-  font-size:18px;
-  line-height:18px;
-  margin:16px 0 11px 0;
-}
 
 .teacher-card .pic {
   width:235px;
-  margin:0 20px 0 0;
-  float:left;
+  margin:0 0 0 20px;
+  float:right;
 }
 
 .teacher-card .descr {
@@ -4081,6 +4130,10 @@ ol.search-results li .cont strong {
 
 .back-link {
   margin:0 0 38px 0;
+}
+
+.press-center .back-link {
+  margin:-18px 0 23px 0;
 }
 
 .back-link a {
@@ -4095,12 +4148,18 @@ ol.search-results li .cont strong {
 .teacher-card h2 {
   font-weight:normal;
   margin-top:0px!important;
+  font-size:24px;
+  font-weight:bold;
+  color:#000;
   
 }
 
 .teacher-card .teacher-position {
   font-style: italic;
-  margin: -14px 0 19px 0;
+  margin: 16px 0 35px 0;
+  font-size:18px;
+  line-height:18px;
+  color:#006351;
 }
 
 .teacher-card .teacher-data {
@@ -4112,6 +4171,26 @@ ol.search-results li .cont strong {
   padding:0 0 0 19px;
   background:url(../images/ul-pt-1.png) 0 .6em no-repeat;
   margin:0 0 .5em 0;
+}
+
+.teacher-related-events {
+  border-top:none;
+  padding:13px 0 0 0;
+}
+
+.teacher-related-events h4 {
+  font-size:24px;
+  line-height:26px;
+  margin:0 0 10px 0;
+}
+
+.teacher-related-events .seminars-table {
+  width: 1040px;
+  margin: 29px -20px 0 -20px;
+}
+
+.teacher-related-events .seminars-table .name {
+  width: 735px;
 }
 
 .article-pic {

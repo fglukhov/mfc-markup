@@ -582,7 +582,11 @@ $(document).ready(function () {
         if (select.find("option[value=" + select.val() + "]").attr("flag")) {
           paramSel.find(".sel-value").html("<img src='" + select.find("option[value=" + select.val() + "]").attr("flag") + "' />" + select.find("option[value=" + select.val() + "]").html());
         } else {
-          paramSel.find(".sel-value").html(select.find("option[value=" + select.val() + "]").html());
+          if (select.parents().hasClass("reviews-filter")) {
+            paramSel.find(".sel-value").html("<span>" + select.find("option[value=" + select.val() + "]").html() + "</span>");
+          } else {
+            paramSel.find(".sel-value").html(select.find("option[value=" + select.val() + "]").html());
+          }
         }
         
         select.find("option").each(function () {
@@ -595,13 +599,25 @@ $(document).ready(function () {
           if (select.find("option").length > 2) {
           
             if ($(this).val() != select.val() /* || select.attr("ttl")*/) {
-              dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+              if (select.parents().hasClass("reviews-filter")) {
+                dropdown.append("<div val='" + $(this).attr("value") + "'><span>" + flag + $(this).html() + "</span></div>");
+              } else {
+                dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+              }
             } else {
-              dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+              if (select.parents().hasClass("reviews-filter")) {
+                dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'><span>" + flag + $(this).html() + "</span></div>");
+              } else {
+                dropdown.append("<div style='display:none' val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+              }
             }
             
           } else {
-            dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            if (select.parents().hasClass("reviews-filter")) {
+              dropdown.append("<div val='" + $(this).attr("value") + "'><span>" + flag + $(this).html() + "</span></div>");
+            } else {
+              dropdown.append("<div val='" + $(this).attr("value") + "'>" + flag + $(this).html() + "</div>");
+            }
           }
           
         });
@@ -1382,14 +1398,24 @@ function citySelector() {
 
 function handleReviews() {
   if ($(".course-reviews").length) {
+    
+    if ($(".course-reviews").hasClass("reviews-wide")) {
+      var cHeight = 126;
+      var dHeight = 314;
+    } else {
+      var cHeight = 200;
+      var dHeight = 332;
+    }
+  
     $(".course-reviews-item .text-cont").each(function() {
-      if ($(this).height() > 200) {
+      if ($(this).height() > cHeight) {
         $(this).parents(".course-reviews-item").find(".expand-trigger span").show();
       }
     });
     
     $(".course-reviews .expand-trigger span").click(function() {
       if (!$(this).hasClass("expanded")) {
+        $(this).parents(".course-reviews-item").addClass("review-expanded");
         $(this).addClass("expanded").html("Свернуть")
         $(this).parents(".descr").css({
           height: "auto",
@@ -1399,13 +1425,14 @@ function handleReviews() {
           height: "auto"
         });
       } else {
+        $(this).parents(".course-reviews-item").removeClass("review-expanded");
         $(this).removeClass("expanded").html("Развернуть")
         $(this).parents(".descr").css({
-          height: 332,
+          height: dHeight,
           zIndex: ""
         });
         $(this).parents(".cont").find(".text").css({
-          height: 200
+          height: cHeight
         });
       }
     });
