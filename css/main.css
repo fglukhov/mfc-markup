@@ -1799,6 +1799,7 @@ label.placeholder {
   line-height:34px;
   padding:0 10px !important;
   top:0;
+  left:0;
   font-weight:normal !important;
 }
 
@@ -4944,13 +4945,13 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
   behavior:url(PIE.htc);
   position:absolute;
   z-index:20;
-  background:#fff;
+  background:#fff url(../images/ul-dashed-gray.png) 0 36px repeat-x;
   -webkit-box-shadow:0 0 10px 0 rgba(0,0,0,.5);
   -moz-box-shadow:0 0 10px 0 rgba(0,0,0,.5);
   box-shadow:0 0 10px 0 rgba(0,0,0,.5);
   top: -8px;
   left: -11px;
-  padding:36px 0 0 0;
+  padding:38px 0 0 0;
   display:none;
 }
 
@@ -4973,6 +4974,7 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
   cursor:pointer;
 }
 
+.city-selector .cs-item.selected,
 .city-selector .cs-item:hover {
   background:#eafaec;
 }
