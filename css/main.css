@@ -5226,6 +5226,10 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
   margin:0 13px 13px 0;
 }
 
+.course-gallery .descr {
+  display:none;
+}
+
 .gallery-popup {
   background:url(../images/tint-dark.png);
   position:fixed;
@@ -6275,4 +6279,46 @@ a.signup:hover {
 .seminars-list p,
 .seminars-list ul {
   margin:0 0 6px 0;
+}
+
+.course-program .cp-item-ttl {
+  font-size:14px;
+  line-height:17px;
+  font-weight:normal !important;
+  background:#f4f7f5;
+  padding:9px 20px 9px 20px;
+  margin:0 0 1px 0 !important;
+  color:#006151;
+}
+
+.course-program .item-ttl-act {
+  font-size:24px !important;
+  line-height:28px !important;
+  margin-bottom:0;
+}
+
+.course-program .cp-item-ttl span {
+  background: url(../images/ul-dashed-green.gif) 0 bottom repeat-x;
+  cursor:pointer;
+}
+
+.course-program .cp-item-descr {
+  display:none;
+  font-size:12px;
+  background:#f4f7f5;
+  padding:15px 20px 15px 20px;
+  margin-bottom:1px;
+}
+
+.course-program .cp-item-descr ol {
+}
+  
+.course-program .cp-item-descr ol,
+.course-program .cp-item-descr ol li {
+  list-style-type:decimal;
+  list-style-position:inside;
+}
+
+.course-program .cp-item-descr ol li {
+  margin:0 0 20px 0;
 }

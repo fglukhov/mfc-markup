@@ -16,6 +16,10 @@ var hostname = document.location.protocol + '//' + document.location.hostname;
 
 $(document).ready(function () {
 
+  if ($(".course-program").length) {
+    $(".course-program").courseProgram();
+  }
+
   $(".clients-list .link").click(function() {
     if (!$(this).parents("li").hasClass("act")) {
       $(".clients-list li").removeClass("act");
@@ -46,12 +50,18 @@ $(document).ready(function () {
   });
 
   handleReviews();
-
-  if ($("#course_gallery_1").length) {
   
-    $(".course-descr-finished .signup").click(function() {
-      return false;
-    });
+  $(".course-descr-finished .signup").click(function() {
+    return false;
+  });
+  
+  if ($(".course-gallery").length) {
+    $(".course-gallery").courseGallery();
+  }
+  
+  
+
+  if (0) {
     
     //Thumbnailer.config.shaderOpacity = 1;
     var $course_gallery_1 = $('#course_gallery_1 .gallery').tn3({
@@ -79,11 +89,11 @@ $(document).ready(function () {
       
       var gal = $("#"+galId);
       
+      gal.show($(this).prevAll("a").length);
       gal.css({
         left: 0,
       }).hide().fadeIn(150);
       
-      gal.find(".tn3-thumbs li").eq($(this).prevAll("a").length).click();
       
       return false;
     });
@@ -114,7 +124,7 @@ $(document).ready(function () {
     
   }
   
-  if ($("#course_gallery_2").length) {
+  if (0) {
     
     //Thumbnailer.config.shaderOpacity = 1;
     var $course_gallery_2 = $('#course_gallery_2 .gallery').tn3({
@@ -707,7 +717,7 @@ function makeup() {
 	}
 
 	$("ol li").each(function() {
-		if (!$(this).find("span.li-cont").length) {
+		if (!$(this).find("span.li-cont").length && !$(this).parents(".gallery").length) {
 			$(this).html("<span class='li-cont'>"+$(this).html()+"</span>");
 		}
 	});
@@ -824,15 +834,6 @@ function makeup() {
 				});
 			}
 
-
-
-
-
-
-
-
-
-
 			$(this).parents(".form-item").find(".placeholder").click(function() {
 				$(this).focus();
 			});
@@ -849,8 +850,6 @@ function makeup() {
 					$(this).parents(".form-item").find(".placeholder").show();
 				}
 
-
-
 			});
 		}
 	});
@@ -858,94 +857,25 @@ function makeup() {
 
 
 	$("ul,ol").each(function() {
-		if (!$(this).children("li").first().hasClass("first")) {
+		if (!$(this).children("li").first().hasClass("first") && !$(this).parents(".gallery").length) {
 			$(this).children("li").last().addClass("last");
-
-
-
-
-
-
-
-
-
-
-
-
-
 			$(this).children("li").first().addClass("first");
 		}
 
 	});
 
-
-
-
-
 	$("ol li").each(function() {
-		if (!$(this).find(".li-cont").length) {
+		if (!$(this).find(".li-cont").length && !$(this).parents(".gallery").length) {
 			$(this).html("<span class='li-cont'>"+$(this).html()+"</span>")
 		}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	});
-
-
-
-
-
-
-
-
-
-
-
 
 	$("table").each(function() {
 		if (!$(this).find("tr").first().hasClass("first")) {
 			$(this).find("tr").last().addClass("last");
 			$(this).find("tr").first().addClass("first");
 		}
-
-
-
-
-
-
-
-
-
 
 	});
 
@@ -955,90 +885,15 @@ function makeup() {
 			var submit = $(this);
 			divBtn.attr("class",$(this).attr("class")).attr("id",$(this).attr("id")).html("<span>" + $(this).val() + "</span>");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			$(this).after(divBtn);
 
 			$(this).hide();
 			divBtn.on("click",function () {
 				submit.click();
-
-
-
-
-
-
-
 			});
 		}
 
-
-
-
-
-
-
-
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -1189,120 +1044,7 @@ function validateForms() {
 
 	});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 function pupMakeup(popup) {
 	var popup = popup;
@@ -1444,3 +1186,120 @@ function handleReviews() {
     
   }
 }
+
+(function( $ ) {
+  $.fn.courseGallery = function() {
+    
+    $(this).each(function() {
+      var galList = $(this);
+      
+      var galLinks = galList.children("a");
+      
+      var galId = galList.attr("rel");
+      
+      var $galPopup = $("<div>", {id: galId, class: "gallery-popup"});
+      
+      $("body").append($galPopup);
+      
+      $galPopup.append('<div class="gallery-close"></div>');
+      $galPopup.append('<div class="gallery"><div class="tn3 album"><ol></ol></div>');
+      
+      var $tn3Gallery = $galPopup.find(".gallery");
+      var $tn3List = $galPopup.find("ol");
+      
+      galLinks.each(function() {
+        $tn3List.append('<li><h4>'+$(this).find(".descr").html()+'</h4><div class="tn3 description"></div><a href="'+$(this).attr("hires")+'"><img src="'+$(this).children("img").attr("src")+'"/></a></li>');
+      });
+      
+      var $courseGal = $tn3Gallery.tn3({
+        responsive: false,
+        imageClick:"fullscreen",
+        image:{
+          maxZoom:1.5,
+          crop:true,
+          clickEvent:"dblclick"
+        },
+        thumbnailer:{
+          overMove: false
+        }
+      }).data('tn3');
+      
+      $courseGal.resize($(window).width(),$(window).height() - 200);
+      
+      $(window).resize(function() {
+        $courseGal.resize($(window).width(),$(window).height() - 200);
+      })
+      
+      $(".course-gallery a").click(function() {
+      
+        var $th = $(this);
+        
+        var galId = $(this).parents(".course-gallery").attr("rel");
+        
+        var gal = $("#"+galId);
+        
+        
+        gal.css({
+          left: 0,
+          opacity:.1
+        }).hide().show().animate({
+          opacity:1
+        },150);
+
+        $courseGal.show($th.prevAll("a").length);
+        
+        return false;
+      });
+      
+      $(".gallery-close").on("click",function() {
+        $(".gallery-popup").fadeOut(150,function() {
+          $(".gallery-popup").css("left",-20000);
+        });
+      });
+      
+      jQuery(document).keydown(function(e){
+        if (e == null) { // ie
+          keycode = event.keyCode;
+        } else { // mozilla
+          keycode = e.which;
+        }
+
+        if(keycode == 27){ // escape, close box
+          $(".gallery-popup").fadeOut(150,function() {
+            $(".gallery-popup").css("left",-20000);
+          });
+        }
+        
+      });
+      
+      
+    });
+    
+  };
+})( jQuery );
+
+(function( $ ) {
+  $.fn.courseProgram = function() {
+    
+    $(this).each(function() {
+      
+      var programCont = $(this);
+      
+      var $itemTtl = $(this).find("h3");
+      
+      $itemTtl.each(function() {
+        $(this).addClass("cp-item-ttl");
+        var $itemDescr = $(this).next("div").first();
+        $itemDescr.hide().addClass("cp-item-descr");
+        var num = parseInt($(this).prevAll("h3").length) + 1;
+        $(this).html("<span>" + num + ". " + $(this).html() + "</span>");
+        $(this).on("click",function() {
+          $itemDescr.slideToggle(150);
+          $(this).toggleClass("item-ttl-act");
+        });
+      });
+      
+    });
+    
+  };
+})( jQuery );
