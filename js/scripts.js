@@ -1197,7 +1197,7 @@ function handleReviews() {
       
       var galId = galList.attr("rel");
       
-      var $galPopup = $("<div>", {id: galId, class: "gallery-popup"});
+      var $galPopup = $("<div id='"+galId+"' class='gallery-popup'>");
       
       $("body").append($galPopup);
       

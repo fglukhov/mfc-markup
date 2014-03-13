@@ -1,5 +1,9 @@
 ﻿.common-form .form-text,
 .common-form .form-textarea {
-  background:url(../images/input-bg.png) 0 0 repeat-x;
+  background:#fff url(../images/input-bg.png) 0 0 repeat-x;
   line-height:34px;
+}
+
+.main-menu li a {
+  padding:9px 33px 8px 13px;
 }

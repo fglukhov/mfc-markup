@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-<title>МФЦ - Главная</title>
+<title>МФЦ - Курсы - Реализация курса 2</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 <meta content="text/html; charset=UTF-8" http-equiv="content-type">
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/fonts-min.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.css" media="screen"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="screen"/>
 <link rel="stylesheet" type="text/css" href="css/main.css" media="all"/>
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print"/>
 <!--[if lte IE 8]>
@@ -29,6 +30,11 @@
 <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
 
 <script type="text/javascript" src="js/calendar.js"></script>
+<script src="//api-maps.yandex.ru/2.0/?load=package.standard,package.geoObjects&lang=ru-RU" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+
+<link type="text/css" rel="stylesheet" href="js/tn3/skins/mfc/mfc.css"></link>
+<script type="text/javascript" src="js/tn3/js/jquery.tn3lite.min.js"></script>
 <script type="text/javascript" src="js/scripts.js"></script>
 
 </head>
@@ -49,7 +55,7 @@
   <div class="top-main">
     <!-- Header -->
     
-    <div class="header header-home">
+    <div class="header">
       
       <div class="header-top fc">
       	<div class="center-wrapper">
@@ -61,39 +67,6 @@
       		  <div class="phone">
       		    <span>+7 (495)</span> 921-22-73
       		  </div>
-            <div class="contacts-address">
-              <span class="city-trigger" curcity="1">Москва</span><span class="address-text">, ул. Буженинова д.30 / <strong>19.00-21.00</strong></span>
-              <div class="city-selector">
-                <div class="cs-item" cityid="1">
-                  <div class="city-name"><span>Москва</span></div>
-                  <div class="city-phone"><span>+7 (812)</span> 921-22-73</div>
-                  <div class="address-html">
-                    , ул. Буженинова д.30 / <strong>19.00-21.00</strong>
-                  </div>
-                </div>
-                <div class="cs-item" cityid="2">
-                  <div class="city-name"><span>Санкт-Петербург</span></div>
-                  <div class="city-phone"><span>+7 (812)</span> 314-35-43</div>
-                  <div class="address-html">
-                    , наб. канала Грибоедова, д. 5 / <strong>17.00-18.00</strong>
-                  </div>
-                </div>
-                <div class="cs-item" cityid="3">
-                  <div class="city-name"><span>Калининград</span></div>
-                  <div class="city-phone"><span>+7 (4012)</span> 77-94-25</div>
-                  <div class="address-html">
-                    , ул. Генделя, д.5 / <strong>19.00-21.00</strong>
-                  </div>
-                </div>
-                <div class="cs-item" cityid="4">
-                  <div class="city-name"><span>Брянск</span></div>
-                  <div class="city-phone"><span>+7 (4832)</span> 72-12-98</div>
-                  <div class="address-html">
-                    , б-р Гагарина, д. 27 / <strong>19.00-21.00</strong>
-                  </div>
-                </div>
-              </div>
-            </div>
       		  <div class="contacts-links">
       		    <a href="#">Все контакты</a> / <a href="#">Все центры</a>
       		  </div>
@@ -200,842 +173,836 @@
     
     <!-- Body -->
     
-    <div class="body page-home">
+    <div class="body page-course">
     
         
       <!-- Колонка во всю ширину страницы -->
       
-      <div class="main-page single-col">
+      <div class="single-col">
         
         <div class="content">
         
-          
-          <!-- События -->
-          
-          <div class="mainpage-events">
-            
-            <div class="events-carousel-wrapper">
-            	<div class="eventslist events-carousel">
-            	  <ul>
-            		  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            1 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	Актуальные вопросы регулирования деятельности некоммерческих организаций, включая новации.
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Семинары
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            2 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	Закон о национальной платежной системе (161-ФЗ). Основные требования по организации платежных
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Курсы
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            3 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	Специализированный курс (серия 7.0)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Семинары
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            4 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	с 20 февраля аттестация по программе "Налоговый юрист" (вечерняя группа)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Аттестация
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            5 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	Специализированный курс (серия 3.0)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Курсы
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            6 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	Специализированный курс
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Курсы
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            7 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	с 20 февраля аттестация по программе "Налоговый юрист" (вечерняя группа)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Аттестация
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            8 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	с 20 февраля аттестация по программе "Налоговый юрист" (вечерняя группа)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Аттестация
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            9 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	с 20 февраля аттестация по программе "Налоговый юрист" (вечерняя группа)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Аттестация
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-                  <li>
-            		  	<a href="#" class="eventslist-item">
-            		  	  <span class="cont">
-                        <span class="pic">
-            		  	  	  <img src="files/events-pic-med-1.jpg" />
-            		  	  	</span>
-            		  	  	<span class="descr">
-                          <span class="date">
-                            10 июля
-                          </span>
-            		  	  	  <span class="ttl">
-            		  	  	  	с 20 февраля аттестация по программе "Налоговый юрист" (вечерняя группа)
-            		  	  	  </span>
-            		  	  	  <span class="category">
-                            / Аттестация
-                          </span>
-            		  	  	</span>
-                      </span>
-            		  	</a>
-            		  </li>
-            		</ul>
-                
-            	</div>
-            </div>
-            
-            <div class="prev"></div>
-            <div class="next"></div>
-            
-          </div>
-          
-          <!-- События END -->
-          
-          <!-- Направления обучения -->
-          
-          <div class="mainpage-education fc">
-            <div class="center-wrapper">
-              <a class="mp-education-item" href="/course-series/fcsm.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 0px;">Курсы по рынку ценных бумаг</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/accounting.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 5px;">Курсы бухгалтеров</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/tax_adviser.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 0px;">Курсы по налогообложению</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/ias.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 5px;">МСФО</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/insurance.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 5px;">Страховое дело</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/audit.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 5px;">Курсы аудиторов</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/podft.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 0px;">Противодействие легализации</span>
-              <span class="descr"></span>
-              </a><a class="mp-education-item" href="/course-series/course-series_8.html">
-              <img src="images/void.gif" class="ico ico-buch">
-              <span class="ttl" style="padding-top: 0px;">Финансовая грамотность</span>
-              <span class="descr"></span>
-              </a>
-            </div>
-          </div>
-          
-          <!-- Направления обучения END -->
-          
-          <!-- Наши проекты -->
-          
-          <div class="mainpage-projects fc">
-            <div class="center-wrapper">
-              <div class="projects-cols">
-            	  <div class="projects-col fc">
-            	    <h3>Проекты</h3>
-            	    <p>Реклама исключительно изменяет системный анализ, полагаясь на инсайдерскую информацию. Таргетирование искажает фирменный портрет потребителя, учитывая современные тенденции.</p>
-            	    <ul class="common-list">
-            	      <li><a href="#">Конференции</a></li>
-            	      <li><a href="#">Консалтинг</a></li>
-            	      <li><a href="#">Кадровое агенство</a></li>
-            	      <li><a href="#">Экзаменационный центр</a></li>
-            	      <li><a href="#">Дистанционное обучение</a></li>
-            	      <li><a href="#">Онлайн трансляции</a></li>
-            	      <li><a href="#">Оценка персонала</a></li>
-            	      <li><a href="#">Книги</a></li>
-            	    </ul>
-            	  </div>
-            	  <div class="projects-col fc">
-            	    <h3>Для клиентов</h3>
-            	    <p>По сути, оценка эффективности кампании позиционирует эксклюзивный инвестиционный продукт, осознав маркетинг как часть производства.</p>
-            	    <ul class="files-list">
-            	      <li>
-            	        <a href="#"><span class="ico ico-pdf"></span></a>
-            	        <a href="#">Презентация услуг для финансовых специалистов</a>
-            	        <span class="file-type">(pdf, 3.8 мБ)</span>
-            	      </li>
-            	      <li>
-            	        <a href="#"><span class="ico ico-pdf"></span></a>
-            	        <a href="#">Презентация услуг для участников финансового рынка</a>
-            	        <span class="file-type">(pdf, 6.4 мБ)</span>
-            	      </li>
-            	      <li>
-            	        <a href="#"><span class="ico ico-pdf"></span></a>
-            	        <a href="#">Презентация on-line трансляций</a>
-            	        <span class="file-type">(pdf, 18.1 мБ)</span>
-            	      </li>
-            	      <li>
-            	        <a href="#"><span class="ico ico-pdf"></span></a>
-            	        <a href="#">Презентация системы дистанционного обучения</a>
-            	        <span class="file-type">(pdf, 8.6 мБ)</span>
-            	      </li>
-            	    </ul>
-            	  </div>
-            	  <div class="projects-col fc">
-            	    <h3>Информация</h3>
-            	    <p>Организация слубы маркетинга, как следует из вышесказанного, допускает комплексный имидж, не считаясь с затратами. Начальная стадия проведения исследования, в рамках сегодняшних воззрений.</p>
-            	    <ul class="files-list">
-            	      <li>
-            	        <a href="#"><span class="ico ico-xls"></span></a>
-            	        <a href="#">Прайс-лист на все услуги</a>
-            	        <span class="file-type">(xls, 3.8 мБ)</span>
-            	      </li>
-            	      <li>
-            	        <a href="#"><span class="ico ico-doc"></span></a>
-            	        <a href="#">Как вернуть затраты на обучение?</a>
-            	        <span class="file-type">(doc, 3.8 мБ)</span>
-            	      </li>
-            	    </ul>
-            	  </div>
-            	</div>
-            </div>
-          </div>
-          
-          <!-- Наши проекты END -->
-          
-          <!-- Ближайшие события -->
-          
-          <div class="mainpage-upcoming-events">
-            
+          <div class="page-title">
             <div class="center-wrapper">
             
-              <div class="tabbed-content">
-                <div class="tabs tabs-1">
-                  <div class="tab" rel="mpuc-courses">
-                    <span>Ближайшие курсы</span>
-                  </div>
-                  <div class="tab" rel="mpuc-seminars">
-                    <span>Ближайшие семинары</span>
-                  </div>
-                  <div class="tab" rel="mpuc-studies">
-                    <span>Ближайшие занятия</span>
-                  </div>
-                </div>
-                <div class="tabs-content">
-                  <!-- Ближайшие курсы -->
-                  <div class="tab-content" rel="mpuc-courses">
-                    
-                    <div class="upcoming-filter">
-                      <div class="common-form">
-                      	<select>
-                      	  <option value="0">Все направления</option>
-                      	  <option value="1">Курсы по рынку ценных бумаг</option>
-                      	  <option value="5">Курсы бухгалтеров</option>
-                      	  <option value="6">Курсы по налогообложению</option>
-                      	  <option value="3">МСФО</option>
-                      	  <option value="2">Курсы аудиторов</option>
-                      	</select>
-                      </div>
-                    </div>
-                  
-                    <div>
-                    	<table class="events-table">
-                    	
-                    	  <tr>
-                    	    <th>Название курса</th>
-                    	    <th>Дата проведения</th>
-                    	    <th>Форма обучения</th>
-                    	    <th class="center">Цена</th>
-                    	  </tr>
-                    	  
-                    	  <tr>
-                    	    <td class="name">
-                    	      <a href="#">Повышение квалификации по программе "Международные стандарты финансовой отчётности" (№ 1.1.4. в системе спецкурсов)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Теория и практика налогообложения (240 часов)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                    	</table>
-                      
-                      <div class="more-courses">
-                        <a href="#">Еще курсы</a>
-                      </div>
-                      
-                    </div>
-                    
-                  </div>
-                  <div class="tab-content" rel="mpuc-seminars">
-                  
-                    <div class="upcoming-filter">
-                      <div class="common-form">
-                      	<select>
-                      	  <option value="0">Все направления</option>
-                      	  <option value="1">Курсы по рынку ценных бумаг</option>
-                      	  <option value="5">Курсы бухгалтеров</option>
-                      	  <option value="6">Курсы по налогообложению</option>
-                      	  <option value="3">МСФО</option>
-                      	  <option value="2">Курсы аудиторов</option>
-                      	</select>
-                      </div>
-                    </div>
-                  
-                    <div>
-                    	<table class="events-table">
-                    	
-                    	  <tr>
-                    	    <th>Название курса</th>
-                    	    <th>Дата проведения</th>
-                    	    <th>Форма обучения</th>
-                    	    <th class="center">Цена</th>
-                    	  </tr>
-                    	  
-                    	  <tr>
-                    	    <td class="name">
-                    	      <a href="#">Повышение квалификации по программе "Международные стандарты финансовой отчётности" (№ 1.1.4. в системе спецкурсов)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Теория и практика налогообложения (240 часов)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <a href="#">Специализированный курс (серия 4.0)</a>
-                    	    </td>
-                    	    <td class="date">
-                    	      <div>23 сентября 2013 &larr;</div>
-                            <div>10 декабря 2013 <span class="time">/ 19:00</span></div>
-                    	      <div class="check-in">Запись до: <strong>23 декабря 2013</strong></div>
-                    	    </td>
-                    	    <td class="form">
-                    	      Вечерняя
-                    	    </td>
-                    	    <td class="price">
-                            <div class="price-content">
-                              <div class="prices fc">
-                                <div class="price-1">
-                                  <span>17000 &#8399;</span>
-                                  <span class="cat">физ. лица</span>
-                                </div>
-                                <div class="price-2">
-                                  <span>17680 &#8399;</span>
-                                  <span class="cat">юр. лица</span>
-                                </div>
-                              </div>
-                              <a class="signup" href="#">Записаться</a>
-                            </div>
-                    	    </td>
-                    	  </tr>
-                    	  
-                    	</table>
-                    </div>
-                  </div>
-                  <div class="tab-content" rel="mpuc-studies">
-                  
-                    <div class="upcoming-filter">
-                      <div class="common-form">
-                      	<select>
-                      	  <option value="0">Все направления</option>
-                      	  <option value="1">Курсы по рынку ценных бумаг</option>
-                      	  <option value="5">Курсы бухгалтеров</option>
-                      	  <option value="6">Курсы по налогообложению</option>
-                      	  <option value="3">МСФО</option>
-                      	  <option value="2">Курсы аудиторов</option>
-                      	</select>
-                      </div>
-                    </div>
-                  
-                    <div>
-                    	<table class="events-table studies-table">
-                    	
-                    	  <tr>
-                    	    <th>Занятие</th>
-                    	    <th>Дата и время проведения</th>
-                    	    <th>Преподаватель</th>
-                    	  </tr>
-                    	  
-                    	  <tr>
-                    	    <td class="name">
-                    	      <div class="course-ttl">
-                              Брокерская/дилерская деятельность/ Маржинальное кредитование Управление ценными бумагами
-                            </div>
-                            <div class="study-link">
-                              <a href="#">Повышение квалификации по программе "Международные стандарты финансовой отчётности" (№ 1.1.4. в системе спецкурсов)</a>
-                            </div>
-                    	    </td>
-                    	    <td class="date">
-                    	      <span class="red">13.03.2014</span> / 18.15 - 21.30
-                    	    </td>
-                    	    <td class="teacher">
-                            Кудрявцев Юрий Николаевич, Ведущий преподаватель Института МФЦ
-                          </td>
-                    	  </tr>
-                    	  
-                        <tr>
-                    	    <td class="name">
-                    	      <div class="course-ttl">
-                              Внутренний учет	
-                            </div>
-                            <div class="study-link">
-                              <a href="#">Внутренний учет и контроль профессионального участника рынка ценных бумаг (ПОЛНЫЙ КУРС БУДУЩЕГО СОТРУДНИКА БЭК-ОФИСА и КОНТРОЛЕРА)</a>
-                            </div>
-                    	    </td>
-                    	    <td class="date">
-                    	      <span class="red">13.03.2014</span> / 18.15 - 21.30
-                    	    </td>
-                    	    <td class="teacher">
-                            Кудрявцев Юрий Николаевич, Ведущий преподаватель Института МФЦ
-                          </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <div class="course-ttl">
-                              Отчетность ФСФР/ Расчет собственных средств
-                            </div>
-                            <div class="study-link">
-                              <a href="#">Повышение квалификации по программе "Международные стандарты финансовой отчётности" № 1.1.4. в системе спецкурсов)</a>
-                            </div>
-                    	    </td>
-                    	    <td class="date">
-                    	      <span class="red">13.03.2014</span> / 18.15 - 21.30
-                    	    </td>
-                    	    <td class="teacher">
-                            Кудрявцев Юрий Николаевич, Ведущий преподаватель Института МФЦ
-                          </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <div class="course-ttl">
-                              Понятие брокерской, дилерской деятельности и деятельности по управлению ценными бумагами. Организация взаимодействия с организаторами торговли и инфраструктурными институтами
-                            </div>
-                            <div class="study-link">
-                              <a href="#">Специализированный курс (серия 1.0)</a>
-                            </div>
-                    	    </td>
-                    	    <td class="date">
-                    	      <span class="red">13.03.2014</span> / 18.15 - 21.30
-                    	    </td>
-                    	    <td class="teacher">
-                            Кудрявцев Юрий Николаевич, Ведущий преподаватель Института МФЦ
-                          </td>
-                    	  </tr>
-                        
-                        <tr>
-                    	    <td class="name">
-                    	      <div class="course-ttl">
-                              Брокерская/дилерская деятельность/ Маржинальное кредитование Управление ценными бумагами
-                            </div>
-                            <div class="study-link">
-                              <a href="#">Повышение квалификации по программе "Международные стандарты финансовой отчётности" (№ 1.1.4. в системе спецкурсов)</a>
-                            </div>
-                    	    </td>
-                    	    <td class="date">
-                    	      <span class="red">13.03.2014</span> / 18.15 - 21.30
-                    	    </td>
-                    	    <td class="teacher">
-                            Кудрявцев Юрий Николаевич, Ведущий преподаватель Института МФЦ
-                          </td>
-                    	  </tr>
-                        
-                    	  
-                    	</table>
-                      
-                      <div class="more-courses">
-                        <a href="#">Еще занятия</a>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
+              <!-- Breadcrumbs -->
+              
+              <div class="breadcrumbs">
+                <a href="#">Образовательный центр МФЦ</a><span>&rarr;</span><a href="#">Курсы по рынку ценных бумаг</a><span>&rarr;</span><a href="#">Повышение квалификации по программе "Соблюдение требований...</a><span>&rarr;</span>24.06.2013 - 24.06.2013
               </div>
-            
+              
+              <!-- Breadcrumbs END -->
+              
+              <h1>Повышение квалификации по программе «Соблюдение требований Федерального закона «О противодействии финансированию терроризма»</h1>
+              
             </div>
-          
           </div>
           
-          <!-- Ближайшие события END -->
+          
+          <div class="center-wrapper">
+          
+          	<!-- Курс -->
+          	<div class="course-content fc">
+          	  
+          	  <div class="l-col">
+          	    
+          	    <div class="tabbed-content common-tabs">
+          	      <div class="tabs">
+          	        <div class="tab" rel="course-description">
+          	          <span>Описание</span>
+          	        </div>
+          	        <div class="tab" rel="course-program">
+          	          <span>Программа</span>
+          	        </div>
+          	        <div class="tab" rel="course-studies">
+          	          <span>Занятия в рамках курса</span>
+          	        </div>
+                    <div class="tab" rel="course-results">
+          	          <span>Итоги реализации</span>
+          	        </div>
+          	      </div>
+          	      <div class="tabs-content">
+          	      
+          	        <!-- Курс - описание -->
+          	        <div class="tab-content" rel="course-description">
+          	          
+                      <div class="course-descr fc">
+                        <div class="course-descr-l">
+                          <div class="course-started">
+                            Курс начался. Запись еще возможна
+                          </div>
+                          <div class="course-date-big">
+                            <span class="red">23 сентября 2013 &rarr; 10 декабря 2013</span> / 19:00
+                          </div>
+                          <div>Запись до: <strong>23 декабря 2013</strong></div>
+                          <div>Форма обучения: <strong>вечерняя</strong></div>
+                        </div>
+                        <div class="course-descr-r">
+                          <div class="price-content">
+                            <div class="prices fc">
+                              <div class="price-1">
+                                <span>17000 &#8399;</span>
+                                <span class="cat">физ. лица</span>
+                              </div>
+                              <div class="price-2">
+                                <span>17680 &#8399;</span>
+                                <span class="cat">юр. лица</span>
+                              </div>
+                            </div>
+                            <a class="signup" href="#">Записаться</a>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="highlight course-highlight">
+                        Скидки в размере от 10% до 15% предоставляются клиентам Института/Учебного центра МФЦ, владельцам дисконтных карт дисконтной системы «Образование», а также начиная со второго слушателя от одной компании (10%).
+                      </div>
+                      
+                      <table class="course-details">
+                        <tr>
+                          <td class="name">
+                            Целевая аудитория:
+                          </td>
+                          <td>
+                            Все соискатели аттестатов на фондовом рынке любой серии, а также все желающие повысить свой уровень знаний о фондовом рынке.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            Цели и задачи курса:
+                          </td>
+                          <td>
+                            Подготовка к сдаче квалификационного экзамена, систематизация теоретических знаний и практических навыков в области рынка ценных бумаг.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            Лекторы:
+                          </td>
+                          <td>
+                            Высококвалифицированные преподаватели, имеющие многолетний опыт подготовки специалистов рынка ценных бумаг.
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            Описание раздаточного материала:
+                          </td>
+                          <td>
+                            Уникальный учебник "Базовый курс по рынку ценных бумаг", экзаменационные вопросы, сборник наглядных и методических материалов.
+                          </td>
+                        </tr>
+                      </table>
+                      
+                      <div class="hr"></div>
+                      
+                      <h3>Место проведения</h3>
+                      
+                      <div class="course-address">
+                        Центральный офис: <strong>107023, г. Москва , Москва, ул. Буженинова д.30</strong><br />
+                        Телефон: <strong>+7 495 123-45-69</strong><br />
+                        E-mail: <strong><a href="mailto:info@mfc.ru">info@mfc.ru</a></strong>
+                      </div>
+                      
+                      <script type="text/javascript" src="js/map.js"></script>
+                      <div id="course_map" class="course-map"></div>
+          	          
+          	        </div>
+          	        <!-- Курс - кратко END -->
+          	        
+                    <!-- Курс - программа -->
+          	        <div class="tab-content" rel="course-program">
+          	          
+                      <div class="dl-program">
+                        <img src="images/void.gif" class="ico ico-doc" /> <span><a href="#">Скачать программу</a>(docx, 22.5 Кб)</span>
+                      </div>
+                      
+          	          <h3>Программа учебного курса</h3>
+                      
+                      <div class="course-program">
+                        <h3>Основные экономические категории. Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        <h3>Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        <h3>Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        <h3>Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        <h3>Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        <h3>Финансовый рынок. Фундаментальные понятия рынка ценных бумаг</h3>
+                        <div>
+                          <ol>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                            <li>
+                              <strong>Основы финансовых расчетов.</strong> Понятие процента и процентной ставки. Способы и формулы расчета процентных выплат (простой, сложный, эффективный процент).
+                            </li>
+                            <li>
+                              <strong>Изменение стоимости денег во времени.</strong> Дисконтирование денежных потоков. Определение будущей и текущей стоимости. Общая формула для расчета текущей стоимости денежных потоков и ее использование для оценки стоимости ценных бумаг.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности облигаций.</strong> Стоимость бескупонных и купонных облигаций. Текущая доходность облигации, доходности облигации к погашению.
+                            </li>
+                            <li>
+                              <strong>Определение стоимости и доходности акций.</strong> Показатель дохода на одну акцию, коэффициент P/E.
+                            </li>
+                          </ol>
+                        </div>
+                        
+                      </div>
+          	          
+          	        </div>
+          	        <!-- Курс - программа END -->
+          	        
+                    <!-- Занятия в рамках курса -->
+                    
+                    <div class="tab-content" rel="course-studies">
+                    
+                      <h3>Занятия в рамках курса</h3>
+                      
+                      <table class="course-schedule">
+                        <tr>
+                          <th>Занятие</th>
+                          <th>Дата проведения</th>
+                          <th>Время проведения</th>
+                          <th>Преподаватель</th>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Вводная лекция</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Введение в структуру стандартов, особенности принятия и применения Принципы подготовки и представления финансовой отчетности МСФО (IAS) 1 Представление финансовой отчётности МСФО (IAS) 8 Учетная политика, изменения в расчётных бухгалтерских оценках и ошибки МСФО (IFRS) 1 Принятие Международных стандартов финансовой отчётности впервые</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Основы бухгалтерского учета и финансовой отчетности на финансовом рынке</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Практические ситуации и решение задач МСФО (IAS) 16 Основные средства МСФО (IAS) 40 Инвестиционная собственность МСФО (IAS) 38 Нематериальные активы МСФО (IAS) 2 Запасы</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Вводная лекция</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Введение в структуру стандартов, особенности принятия и применения Принципы подготовки и представления финансовой отчетности МСФО (IAS) 1 Представление финансовой отчётности МСФО (IAS) 8 Учетная политика, изменения в расчётных бухгалтерских оценках и ошибки МСФО (IFRS) 1 Принятие Международных стандартов финансовой отчётности впервые</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Основы бухгалтерского учета и финансовой отчетности на финансовом рынке</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Практические ситуации и решение задач МСФО (IAS) 16 Основные средства МСФО (IAS) 40 Инвестиционная собственность МСФО (IAS) 38 Нематериальные активы МСФО (IAS) 2 Запасы</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Вводная лекция</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Введение в структуру стандартов, особенности принятия и применения Принципы подготовки и представления финансовой отчетности МСФО (IAS) 1 Представление финансовой отчётности МСФО (IAS) 8 Учетная политика, изменения в расчётных бухгалтерских оценках и ошибки МСФО (IFRS) 1 Принятие Международных стандартов финансовой отчётности впервые</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="name">
+                            <strong>Основы бухгалтерского учета и финансовой отчетности на финансовом рынке</strong>
+                          </td>
+                          <td class="date">
+                            29.10.2013
+                          </td>
+                          <td class="time">
+                            18:00 — 20:00
+                          </td>
+                          <td class="teacher">
+                            <p>А.Б. Богопольский</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td colspan="4" class="lesson-descr">
+                            <p>Практические ситуации и решение задач МСФО (IAS) 16 Основные средства МСФО (IAS) 40 Инвестиционная собственность МСФО (IAS) 38 Нематериальные активы МСФО (IAS) 2 Запасы</p>
+                          </td>
+                        </tr>
+                      </table>
+                    
+                    </div>
+                    
+                    <!-- Занятия в рамках курса END -->
+                    
+          	        <!-- Курс - итоги реализации -->
+          	        <div class="tab-content" rel="course-results">
+          	          
+                      <div class="page-text">
+                      	<h3>Итоги реализации</h3>
+                        
+                        <div class="tabbed-content common-tabs common-tabs-2 courses-tabs">
+                          <div class="tabs">
+                            <div class="tab" rel="courses-results-questions">
+                              <span>Вопросы</span>
+                            </div>
+                            <div class="tab" rel="courses-results-online">
+                              <span>Итоги он-лайн трансляции</span>
+                            </div>
+                            <div class="tab" rel="courses-results-photo">
+                              <span>Фотоотчет</span>
+                            </div>
+                            <div class="tab" rel="courses-results-reviews">
+                              <span>Отзывы</span>
+                            </div>
+                          </div>
+                          <div class="tabs-content">
+                          
+                            <!-- Вопросы -->
+                            <div class="tab-content" rel="courses-results-questions">
+                              
+                              <h4>Вопросы</h4>
+                        
+                              <ul>
+                                <li>Заполнение констант</li>
+                                <li>Заполнение справочников</li>
+                                <li>Учетная политика</li>
+                                <li>Ввод начальных остатков</li>
+                                <li>Текущие операции бухгалтерского учета</li>
+                                <li>Поступление имущества</li>
+                                <li>Реализация имущества</li>
+                                <li>Закрытие месяца</li>
+                                <li>Формирование отчетов</li>
+                              </ul>
+                              
+                            </div>
+                            
+                            <!-- Итоги он-лайн трансляции -->
+                            <div class="tab-content" rel="courses-results-online">
+                              
+                              <h4>Итоги онлайн-трансляции</h4>
+                      
+                              <div class="course-gallery fc" rel="course_gallery_1">
+                                <a href="#" hires="files/gallery/1.jpg">
+                                  <img src="files/gallery/176x116/1.jpg"/>
+                                  <div class="descr">Бухгалтерский учет и налогообложение операций с ценными бумагами. одготовка финансовой отчетности и налоговых деклараций</div>
+                                </a>
+                                <a href="#" hires="files/gallery/2.jpg">
+                                  <img src="files/gallery/176x116/2.jpg"/>
+                                  <div class="descr">Photo 2</div>
+                                </a>
+                                <a href="#" hires="files/gallery/3.jpg">
+                                  <img src="files/gallery/176x116/3.jpg"/>
+                                  <div class="descr">Photo 3 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/4.jpg">
+                                  <img src="files/gallery/176x116/4.jpg"/>
+                                  <div class="descr">Photo 4 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/5.jpg">
+                                  <img src="files/gallery/176x116/5.jpg"/>
+                                  <div class="descr">Photo 5 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/6.jpg">
+                                  <img src="files/gallery/176x116/6.jpg"/>
+                                  <div class="descr">Photo 6 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/7.jpg">
+                                  <img src="files/gallery/176x116/7.jpg"/>
+                                  <div class="descr">Last pic (number 7)</div>
+                                </a>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                            <!-- Фотоотчет -->
+                            <div class="tab-content" rel="courses-results-photo">
+                              
+                              <h4>Фотоотчет</h4>
+                      
+                              <div class="course-gallery fc" rel="course_gallery_2">
+                                <a href="#" hires="files/gallery/1.jpg">
+                                  <img src="files/gallery/176x116/1.jpg"/>
+                                  <div class="descr">Бухгалтерский учет и налогообложение операций с ценными бумагами. одготовка финансовой отчетности и налоговых деклараций</div>
+                                </a>
+                                <a href="#" hires="files/gallery/2.jpg">
+                                  <img src="files/gallery/176x116/2.jpg"/>
+                                  <div class="descr">Photo 2</div>
+                                </a>
+                                <a href="#" hires="files/gallery/3.jpg">
+                                  <img src="files/gallery/176x116/3.jpg"/>
+                                  <div class="descr">Photo 3 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/4.jpg">
+                                  <img src="files/gallery/176x116/4.jpg"/>
+                                  <div class="descr">Photo 4 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/5.jpg">
+                                  <img src="files/gallery/176x116/5.jpg"/>
+                                  <div class="descr">Photo 5 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/6.jpg">
+                                  <img src="files/gallery/176x116/6.jpg"/>
+                                  <div class="descr">Photo 6 name</div>
+                                </a>
+                                <a href="#" hires="files/gallery/7.jpg">
+                                  <img src="files/gallery/176x116/7.jpg"/>
+                                  <div class="descr">Last pic (number 7)</div>
+                                </a>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                            <!-- Отзывы -->
+                            <div class="tab-content" rel="courses-results-reviews">
+                              
+                              <h4>Отзывы</h4>
+                      
+                              <div class="course-reviews">
+                                <div class="course-reviews-item fc">
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="text">
+                                        <div class="text-cont">
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях.
+                                        </div>
+                                      </div>
+                                      <div class="expand-trigger">
+                                        <span>Развернуть</span>
+                                      </div>
+                                      <div class="subscr">
+                                        АКБ «Онлайн Банк» (ЗАО),<br />
+                                        Сиверцева Татьяна
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="text">
+                                        <div class="text-cont">
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                        </div>
+                                      </div>
+                                      <div class="expand-trigger">
+                                        <span>Развернуть</span>
+                                      </div>
+                                      <div class="subscr">
+                                        АКБ «Онлайн Банк» (ЗАО),<br />
+                                        Сиверцева Татьяна
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="text">
+                                        <div class="text-cont">
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                        </div>
+                                      </div>
+                                      <div class="expand-trigger">
+                                        <span>Развернуть</span>
+                                      </div>
+                                      <div class="subscr">
+                                        АКБ «Онлайн Банк» (ЗАО),<br />
+                                        Сиверцева Татьяна
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="text">
+                                        <div class="text-cont">
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                        </div>
+                                      </div>
+                                      <div class="expand-trigger">
+                                        <span>Развернуть</span>
+                                      </div>
+                                      <div class="subscr">
+                                        АКБ «Онлайн Банк» (ЗАО),<br />
+                                        Сиверцева Татьяна
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="course-reviews-item fc">
+                                  <div class="descr">
+                                    <div class="pt"></div>
+                                    <div class="cont">
+                                      <div class="text">
+                                        <div class="text-cont">
+                                          Общественная молодежная палата города Москвы (далее Общественная молодежная палата) является добровольным объединением  представителей Молодежных общественных палат при муниципальных собраниях внутригородских муниципальных образований в городе Москве (далее Молодежная палата при муниципальном Собрании).
+                                        </div>
+                                      </div>
+                                      <div class="expand-trigger">
+                                        <span>Развернуть</span>
+                                      </div>
+                                      <div class="subscr">
+                                        АКБ «Онлайн Банк» (ЗАО),<br />
+                                        Сиверцева Татьяна
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                              </div>
+                              
+                            </div>
+                            
+                          </div>
+                        </div>
+                        
+                      </div>
+                      
+          	        </div>
+          	        <!-- Курс - итоги реализации END -->
+          	        
+          	        
+          	      </div>
+          	    </div>
+          	    
+          	  </div>
+          	  
+              <div class="r-col">
+                
+                <div class="page-tools fc">
+                  <div class="pt-links">
+                    <a href="#" class="ptl-item"><img src="images/void.gif" class="ico ico-back" />К сериям курсов</a>
+                    <a href="#" class="ptl-item" onClick="window.print();return false;"><img src="images/void.gif" class="ico ico-print" />Распечатать</a>
+                  </div>
+                </div>
+                
+                <h4>Дополнительно</h4>
+                
+                <ul class="r-menu">
+                  <li><a href="#">Все об аттестации аудиторов</a></li>
+                  <li><a href="#">Преподаватели</a></li>
+                  <li><a href="#">Рекомендуемая литература</a></li>
+                  <li><a href="#">Пробная лекция</a></li>
+                  <li><a href="#">Административная информация</a></li>
+                </ul>
+                
+                <h4>Основные документы</h4>
+                
+                <div class="course-docs course-docs-small">
+                  <div class="cont" style="display: block;">
+                    <div class="cd-item fc">
+                      <img src="images/void.gif" class="ico ico-doc-small"> <span><a href="#">Договор для физических лиц</a>(rtf, 22.5 Кб)</span>
+                    </div>
+                    <div class="cd-item fc">
+                      <img src="images/void.gif" class="ico ico-pdf-small"> <span><a href="#">Договор для юридических лиц</a>(pdf, 22.5 Кб)</span>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="course-manager">
+                  <h4>Менеджер курсов</h4>
+                  <div class="trigger fc">
+                    <div class="userpic">
+                      <img src="files/userpic.jpg" />
+                    </div>
+                    <div class="name">
+                      <span>Сидорова Анастасия</span>
+                    </div>
+                  </div>
+                  
+                  <div class="manager-popup">
+                    <div class="cont">
+                    	<div class="pic">
+                    	  <img src="files/userpic.jpg" />
+                    		<div class="pic-mask"></div>
+                    	</div>
+                    	<div class="descr">
+                    	  <div class="name"><span>Сидорова Анастасия</span></div>
+                    	  <p><strong>Тел./Факс:</strong> (495) 963-4983,<br />964-3190 (доб. 106)</p>
+                    	  <p><strong>E-mail:</strong> <a href="#">rcb@educenter.ru</a></p>
+                    	</div>
+                    </div>
+                  </div>
+                  
+                </div>
+                
+                <h4>Присоединяйтесь!</h4>
+                
+                <div class="sn-links fc">
+            	  	<a href="#" class="ico ico-vk-big"></a>
+            	  	<a href="#" class="ico ico-fb-big"></a>
+            	  	<a href="#" class="ico ico-twitter-big"></a>
+            	  	<a href="#" class="ico ico-google-big"></a>
+            	  </div>
+                
+              </div>
+              
+          	</div>
+          	<!-- Курс END -->
+          	
+          </div>
+          
+          <!-- Ближайшие курсы -->
+          
+          <div class="upcoming-courses fc">
+           <div class="center-wrapper">
+              <div class="upcoming-courses-content">
+            	  <div class="upcoming-courses-item">
+            	    <div class="ttl">
+            	      <a href="#">Бухгалтерский учет и налогообложение операций с ценными бумагами. Подготовка финансовой отчетности и налоговых деклараций </a>
+            	    </div>
+            	    <div class="form">
+            	      Форма обучения: вечерняя
+            	    </div>
+            	    <div class="dates">
+            	      23 сентября 2013 &larr; 10 декабря 2013
+            	    </div>
+            	    <div class="prices fc">
+            	      <div class="price-1">
+            	        <span class="cat">физ. лица</span>
+            	        <span>17000 &#8399;</span>
+            	      </div>
+            	      <div class="price-2">
+            	        <span class="cat">юр. лица</span>
+            	        <span>17680 &#8399;</span>
+            	      </div>
+            	    </div>
+            	    <a class="signup" href="#">Записаться</a>
+            	  </div>
+            	  <div class="upcoming-courses-item">
+            	    <div class="ttl">
+            	      <a href="#">Основы рынка ценных бумаг (экспресс-курс)</a>
+            	    </div>
+            	    <div class="form">
+            	      Форма обучения: вечерняя
+            	    </div>
+            	    <div class="dates">
+            	      23 сентября 2013 &larr; 10 декабря 2013
+            	    </div>
+            	    <div class="prices fc">
+            	      <div class="price-1">
+            	        <span class="cat">физ. лица</span>
+            	        <span>17000 &#8399;</span>
+            	      </div>
+            	      <div class="price-2">
+            	        <span class="cat">юр. лица</span>
+            	        <span>17680 &#8399;</span>
+            	      </div>
+            	    </div>
+            	    <a class="signup" href="#">Записаться</a>
+            	  </div>
+            	</div>
+            </div>
+          </div>
+          
+          <!-- Ближайшие курсы END -->
           
           <!-- Календарь -->
           
@@ -1713,97 +1680,9 @@
           				      </div>
           				      <!-- calendar day END -->
           				      <!-- calendar day -->
-          				      <div class="calendar-day calendar-day-active">
-          				        <div class="calendar-day-back">
-          				        </div>
-          				        <div class="calendar-day-view">
-          				          <div class="calendar-day-view-top">
-          				            <a href="#"></a>
-          				          </div>
-          				          <div class="calendar-day-view-middle">
-          				            <div class="calendar-day-view-middle-inner">
-          				              <div class="calendar-day-view-middle-container">
-          				                <div class="calendar-day-view-date">
-          				                  21 января 2012 (вторник)
-          				                </div>
-          				                <div class="calendar-day-view-list">
-          				                  <div class="calendar-day-view-list-inner">
-          				                    <!-- calendar day view item -->
-          				                    <div class="calendar-day-view-item">
-          				                      <div class="calendar-day-view-name">
-          				                        <a href="#">Образовательный курс по самоулучшению</a>
-          				                      </div>
-          				                      <div class="calendar-day-view-dates">
-                                          <div class="calendar-day-view-dates-item">Даты проведения: <strong>30&ndash;31 июля 2013</strong></div>
-                                          <div class="calendar-day-view-dates-item">Запись <strong>до 21 июля</strong></div>
-                                        </div>
-          				                      <div class="calendar-day-view-type">
-          				                        Форма обучения: <strong>Вечерняя</strong>
-          				                      </div>
-          				                      <div class="calendar-day-view-info">
-          				                        <div class="calendar-day-view-prices">
-          				                          <div class="calendar-day-view-prices-item">
-                                              <span class="red">10000 &#8399;</span>
-                                              <span class="cat">физ. лица</span>
-          				                          </div>
-          				                          <div class="calendar-day-view-prices-item price-2">
-                                              <span>12580 &#8399;</span>
-                                              <span class="cat">юр. лица</span>
-          				                          </div>
-          				                        </div>
-          				                        <div class="calendar-day-view-btn">
-          				                          <a href="#"><span>Записаться</span></a>
-          				                        </div>
-          				                      </div>
-          				                    </div>
-          				                    <!-- calendar day view item END -->
-          				                    <!-- calendar day view item -->
-          				                    <div class="calendar-day-view-item">
-          				                      <div class="calendar-day-view-name">
-          				                        <a href="#">Фондовый рынок - курс для президентов</a>
-          				                      </div>
-          				                      <div class="calendar-day-view-dates">
-                                          <div class="calendar-day-view-dates-item">Даты проведения: <strong>30&ndash;31 июля 2013</strong></div>
-                                          <div class="calendar-day-view-dates-item">Запись <strong>до 21 июля</strong></div>
-                                        </div>
-          				                      <div class="calendar-day-view-type">
-          				                        Форма обучения: <strong>Вечерняя</strong>
-          				                      </div>
-          				                      <div class="calendar-day-view-info">
-          				                        <div class="calendar-day-view-prices">
-          				                          <div class="calendar-day-view-prices-item">
-                                              <span class="red">10000 &#8399;</span>
-                                              <span class="cat">физ. лица</span>
-          				                          </div>
-          				                          <div class="calendar-day-view-prices-item price-2">
-                                              <span>12580 &#8399;</span>
-                                              <span class="cat">юр. лица</span>
-          				                          </div>
-          				                        </div>
-          				                        <div class="calendar-day-view-btn">
-          				                          <a href="#"><span>Записаться</span></a>
-          				                        </div>
-          				                      </div>
-          				                    </div>
-          				                    <!-- calendar day view item END -->
-          				                  </div>
-          				                </div>
-          				              </div>
-          				            </div>
-          				          </div>
-          				          <div class="calendar-day-view-bottom">
-          				          </div>
-          				        </div>
+          				      <div class="calendar-day">
           				        <div class="calendar-day-date">
           				          15
-          				        </div>
-          				        <div class="calendar-day-announce">
-          				          <div class="calendar-day-announce-item calendar-day-announce-item-first">
-          				            Образовательный курс по самоулучшению
-          				          </div>
-          				          <div class="calendar-day-announce-item calendar-day-announce-item-third">
-          				            Фондовый рынок - курс для президентов
-          				          </div>
           				        </div>
           				      </div>
           				      <!-- calendar day END -->
@@ -2068,97 +1947,9 @@
           				      </div>
           				      <!-- calendar day END -->
           				      <!-- calendar day -->
-          				      <div class="calendar-day calendar-day-active">
-          				        <div class="calendar-day-back">
-          				        </div>
-          				        <div class="calendar-day-view">
-          				          <div class="calendar-day-view-top">
-          				            <a href="#"></a>
-          				          </div>
-          				          <div class="calendar-day-view-middle">
-          				            <div class="calendar-day-view-middle-inner">
-          				              <div class="calendar-day-view-middle-container">
-          				                <div class="calendar-day-view-date">
-          				                  21 января 2012 (вторник)
-          				                </div>
-          				                <div class="calendar-day-view-list">
-          				                  <div class="calendar-day-view-list-inner">
-          				                    <!-- calendar day view item -->
-          				                    <div class="calendar-day-view-item">
-          				                      <div class="calendar-day-view-name">
-          				                        <a href="#">Образовательный курс по самоулучшению</a>
-          				                      </div>
-          				                      <div class="calendar-day-view-dates">
-                                          <div class="calendar-day-view-dates-item">Даты проведения: <strong>30&ndash;31 июля 2013</strong></div>
-                                          <div class="calendar-day-view-dates-item">Запись <strong>до 21 июля</strong></div>
-                                        </div>
-          				                      <div class="calendar-day-view-type">
-          				                        Форма обучения: <strong>Вечерняя</strong>
-          				                      </div>
-          				                      <div class="calendar-day-view-info">
-          				                        <div class="calendar-day-view-prices">
-          				                          <div class="calendar-day-view-prices-item">
-                                              <span class="red">10000 &#8399;</span>
-                                              <span class="cat">физ. лица</span>
-          				                          </div>
-          				                          <div class="calendar-day-view-prices-item price-2">
-                                              <span>12580 &#8399;</span>
-                                              <span class="cat">юр. лица</span>
-          				                          </div>
-          				                        </div>
-          				                        <div class="calendar-day-view-btn">
-          				                          <a href="#"><span>Записаться</span></a>
-          				                        </div>
-          				                      </div>
-          				                    </div>
-          				                    <!-- calendar day view item END -->
-          				                    <!-- calendar day view item -->
-          				                    <div class="calendar-day-view-item">
-          				                      <div class="calendar-day-view-name">
-          				                        <a href="#">Фондовый рынок - курс для президентов</a>
-          				                      </div>
-          				                      <div class="calendar-day-view-dates">
-                                          <div class="calendar-day-view-dates-item">Даты проведения: <strong>30&ndash;31 июля 2013</strong></div>
-                                          <div class="calendar-day-view-dates-item">Запись <strong>до 21 июля</strong></div>
-                                        </div>
-          				                      <div class="calendar-day-view-type">
-          				                        Форма обучения: <strong>Вечерняя</strong>
-          				                      </div>
-          				                      <div class="calendar-day-view-info">
-          				                        <div class="calendar-day-view-prices">
-          				                          <div class="calendar-day-view-prices-item">
-                                              <span class="red">10000 &#8399;</span>
-                                              <span class="cat">физ. лица</span>
-          				                          </div>
-          				                          <div class="calendar-day-view-prices-item price-2">
-                                              <span>12580 &#8399;</span>
-                                              <span class="cat">юр. лица</span>
-          				                          </div>
-          				                        </div>
-          				                        <div class="calendar-day-view-btn">
-          				                          <a href="#"><span>Записаться</span></a>
-          				                        </div>
-          				                      </div>
-          				                    </div>
-          				                    <!-- calendar day view item END -->
-          				                  </div>
-          				                </div>
-          				              </div>
-          				            </div>
-          				          </div>
-          				          <div class="calendar-day-view-bottom">
-          				          </div>
-          				        </div>
+          				      <div class="calendar-day">
           				        <div class="calendar-day-date">
           				          28
-          				        </div>
-          				        <div class="calendar-day-announce">
-          				          <div class="calendar-day-announce-item calendar-day-announce-item-first">
-          				            Образовательный курс по самоулучшению
-          				          </div>
-          				          <div class="calendar-day-announce-item calendar-day-announce-item-third">
-          				            Фондовый рынок - курс для президентов
-          				          </div>
           				        </div>
           				      </div>
           				      <!-- calendar day END -->
@@ -4845,21 +4636,9 @@
       </div>
     </div>
     
-    <div class="footer-bottom fc">
-      <div class="footer-col-1">
-        Разработка проекта - <a href="#">Bilingo</a>
-      </div>
-      <div class="footer-col-2">
-        Лицензия на образовательную деятельность №029045<br />
-        Свидетельство о государственной аккредитации №010934
-      </div>
-      <div class="footer-col-3">
-        Нашли ошибку? <span class="hl">Выделите</span>  это слово <br />
-        или предложение и нажмите <strong>Ctrl + Enter</strong>.
-      </div>
-      <div class="footer-col-4">
-        
-      </div>
+    <div class="footer-licences">
+      <p>Лицензия на образовательную деятельность №029045</p>
+      <p>Свидетельство о государственной аккредитации №010934</p>
     </div>
     
   </div>

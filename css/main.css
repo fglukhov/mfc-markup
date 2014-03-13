@@ -1614,7 +1614,7 @@ body,html {
   height:100px;
   float:left;
   margin:0 16px 0 0;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   position:relative;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1807,7 +1807,7 @@ label.placeholder {
 
 .login-popup {
   display:none;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   position:absolute;
   background:#fff;
   width:160px;
@@ -2399,7 +2399,7 @@ h3 .all-link {
 }
 
 .courses-content .r-col .page-tools {
-  top:-50px;
+  top:-70px;
 }
 
 .course-content .r-col .page-tools .pt-links a,
@@ -2478,7 +2478,7 @@ h3 .all-link {
 }
 
 .course-manager .manager-popup {
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   position:absolute;
   left:-102px;
   top:16px;
@@ -2725,12 +2725,15 @@ p.big {
 }
 
 .course-schedule .date {
-  width:144px;
+  /*width:144px;*/
+  width: 70px
 }
 
 .course-schedule .time {
-  width:134px;
+  /*width:134px;*/
+  width: 70px
 }
+.course-schedule .date, .course-schedule .time {padding-right: 0px}
 
 .course-schedule .teacher,
 .course-schedule .date,
@@ -2936,7 +2939,7 @@ p.big {
   padding:18px 21px;
   margin:-15px 2px 0 -18px;
   z-index:6;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   -webkit-box-shadow:0 0 10px -2px #333;
   -moz-box-shadow:0 0 10px -2px #333;
   box-shadow:0 0 8px -2px #333;
@@ -3370,7 +3373,7 @@ p.big {
 
 .common-form .form-submit {
   position:relative;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   border:none;
   background:#e74225;
   color:#fff;
@@ -3472,7 +3475,7 @@ p.big {
 }
 
 .common-form .param-sel {
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   width:258px;
   border-top:1px solid #aaaaaa;
   border-right:1px solid #d4d4d4;
@@ -3629,7 +3632,7 @@ p.big {
 .course-reviews-item .descr {
   position:relative;
   background:#fff;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   -webkit-box-shadow:0 0 5px 0 rgba(0,0,0,.5);
   -moz-box-shadow:0 0 5px 0 rgba(0,0,0,.5);
   box-shadow:0 0 5px 0 rgba(0,0,0,.5);
@@ -3836,7 +3839,7 @@ p.big {
 .upcoming-courses-2 .signup:visited {
   clear:left;
   position:relative;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   background:#e74225;
   border:1px solid #e74225;
   display:block;
@@ -4060,7 +4063,7 @@ ol.search-results li .cont strong {
 }
 
 .reviews-filter .param-selector .dropdown {
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   position:absolute;
   z-index:20;
   background:#fff;
@@ -4360,7 +4363,7 @@ ol.search-results li .cont strong {
 /* Feedback form END */
 
 .form-message {
-  behavior: url(PIE.htc);
+  behavior: url(/PIE.htc);
   position: relative;
   background: #fff;
   -webkit-box-shadow: 0 0 15px -2px #333;
@@ -4942,7 +4945,7 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
 
 .city-selector {
   width:164px;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   position:absolute;
   z-index:20;
   background:#fff url(../images/ul-dashed-gray.png) 0 36px repeat-x;
@@ -5008,7 +5011,7 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
 }
 
 .upcoming-filter .param-sel {
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   width:263px;
   background:#fff;
   border:1px solid #e5efed;
@@ -5224,10 +5227,6 @@ span.events-top-month {background:url('/layout/images/month.png') no-repeat left
 .course-gallery img {
   float:left;
   margin:0 13px 13px 0;
-}
-
-.course-gallery .descr {
-  display:none;
 }
 
 .gallery-popup {
@@ -5648,7 +5647,7 @@ a.signup:hover {
 .common-form .form-submit,
 .common-sign-up {
   position:relative;
-  behavior:url(PIE.htc);
+  behavior:url(/PIE.htc);
   -moz-box-sizing:border-box;
   box-sizing:border-box;
 }
@@ -6304,7 +6303,7 @@ a.signup:hover {
 
 .course-program .cp-item-descr {
   display:none;
-  font-size:12px;
+  font-size:13px;
   background:#f4f7f5;
   padding:15px 20px 15px 20px;
   margin-bottom:1px;
@@ -6321,4 +6320,60 @@ a.signup:hover {
 
 .course-program .cp-item-descr ol li {
   margin:0 0 20px 0;
+}
+
+.calendar { z-index:6;}
+.books-carousel .jcarousel-item:hover {z-index:10;}
+.page-courses .courses-content .events-table-2 .name, .page-course .courses-content .events-table-2 .name {width: 300px; position: relative}
+.center-map-descr{width: 325px}
+.course-highlight{margin-bottom: 0px}
+.course-details{padding-top:19px;}
+.courses-content ul li { background: url(../images/ul-pt-2.png) 0 .3em no-repeat; padding: 0 0 0 1em; margin: 0 0 .45em 1em;}
+.courses-content .program ul li {list-style: none; background: none; padding: 0px; margin: 0 0 8px 0}
+.jspScrollable{outline: none}
+.course-details {margin: 0 0 28px 0;}
+.page-courses .courses-content .events-table-2{width: 765px;}
+.course-schedule .name{font-size: 15px}
+
+.mainpage-upcoming-events .studies-table .name {
+  width: 406px;
+}
+
+.mainpage-upcoming-events .studies-table .date {
+  width: 207px;
+  color:#000;
+  padding-top:28px;
+}
+
+.mainpage-upcoming-events .studies-table td {
+  padding: 23px 20px 23px 20px;
+}
+
+.mainpage-upcoming-events .studies-table .teacher {
+  font-size:14px;
+  line-height: 18px;
+  padding-top:28px;
+}
+
+.mainpage-upcoming-events .studies-table .study-link {
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: normal;
+  padding: 12px 0 0 20px;
+  background: url(../images/study-link-arrow.png) 6px 9px no-repeat;
+}
+
+.mainpage-upcoming-events .studies-table .study-link a:hover {
+  text-decoration:underline;
+}
+
+.course-started {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  font-family: 'PT Sans';
+  background: #357c40;
+  padding: 12px 18px 13px 18px;
+  margin: -2px 0 12px -8px;
+  display: inline-block;
 }
